@@ -43,7 +43,7 @@ author_profile: true
 
 **2021**
   - **Adversarial-Enhanced Hybrid Graph Network for User Identity Linkage**  
-    **Xiaolin Chen**, Xuemeng Song, Guozhen Peng, Shanshan Feng, and Liqiang Nie   
+    **Xiaolin Chen**, Xuemeng Song, Guozhen Peng, Shanshan Feng, and Liqiang Nie.   
     In ACM SIGIR 2021 (full paper). [[Paper]](http://haokunwen.github.io/files/acmsigir2022.pdf) [[Code]](https://anonymous819.wixsite.com/ahg-net)    
 
   - **Modality-oriented Graph Learning toward Outfit Compatibility Modeling**  
@@ -52,11 +52,11 @@ author_profile: true
     
 **2020**
   - **User Identity Linkage across Social Media via Attentive Time-aware User Modeling**  
-    **Xiaolin Chen**, Xuemeng Song, Siwei Cui, Tian Gan, Zhiyong Cheng, and Liqiang Nie  
+    **Xiaolin Chen**, Xuemeng Song, Siwei Cui, Tian Gan, Zhiyong Cheng, and Liqiang Nie.  
     IEEE TMM, 2020.  [[Paper]](http://haokunwen.github.io/files/acmsigir2021.pdf) [[Code]](thttps://socialmediafpd.wixsite.com/usernet)   
 
   - **Fine-Grained Privacy Detection with Graph-Regularized Hierarchical Attentive Representation Learning**  
-    **Xiaolin Chen**, Xuemeng Song, Ruiyang Ren, Lei Zhu, Zhiyong Cheng, and Liqiang Nie
+    **Xiaolin Chen**, Xuemeng Song, Ruiyang Ren, Lei Zhu, Zhiyong Cheng, and Liqiang Nie.
     ACM TOIS, 2020. [[Paper]](http://haokunwen.github.io/files/acmmm2021.pdf) [[Code]](https://github.com/Fine-grainedPrivacyDetection/GrHA/) 
 
  
