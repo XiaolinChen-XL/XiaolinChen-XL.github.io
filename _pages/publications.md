@@ -13,51 +13,51 @@ author_profile: true
 **2024**  
 - **Domain-aware Multimodal Dialog Systems with Distribution-based User Characteristic Modeling**   
     **Xiaolin Chen**, Xuemeng Song, Jianhui Zuo, Yinwei Wei, Liqiang Nie, and Tat-Seng Chua.      
-     ACM ToMM 2024. [[Paper]](https://arxiv.org/abs/2404.15875) [[Code]](https://multimodaldialogs.wixstudio.io/dmdu)
+     ACM ToMM 2024. [[Paper]](https://dl.acm.org/doi/10.1145/3704811) [[Code]](https://multimodaldialogs.wixstudio.io/dmdu)
 
 - **Interactive Garment Recommendation with User in the Loop**    
   Federico Becattini, **Xiaolin Chen**, Andrea Puccia, Haokun Wen, Xuemeng Song, Liqiang Nie, and Alberto Del Bimbo.  
-  ACM ToMM 2024. [[Paper]](https://github.com/XiaolinChen-XL/xiaolinchen.github.io/ToMM24_Interactive.pdf)  
+  ACM ToMM 2024. [[Paper]](https://dl.acm.org/doi/10.1145/3702327)  
 
 - **Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval**   
   Haokun Wen, Xuemeng Song, **Xiaolin Chen**, Yinwei Wei, Liqiang Nie, and Tat-Seng Chua.      
-  In ACM SIGIR 2024 (full paper). [[Paper]](https://github.com/XiaolinChen-XL/xiaolinchen.github.io/SIGIR24.pdf) [[Code]](https://github.com/haokunwen/DQU-CIR) 
+  In ACM SIGIR 2024 (full paper). [[Paper]](https://dl.acm.org/doi/10.1145/3626772.3657727) [[Code]](https://github.com/haokunwen/DQU-CIR) 
 
 
 **2023**  
   - **Multimodal Dialog Systems with Dual Knowledge-enhanced Generative Pretrained Language Model**   
     **Xiaolin Chen**, Xuemeng Song, Liqiang Jing, Shuo Li, and Liqiang Nie.    
-    ACM TOIS 2023. [[Paper]](https://github.com/XiaolinChen-XL/xiaolinchen.github.io/TOIS23.pdf) [[Code]](https://multimodaldialog.wixsite.com/website)  
+    ACM TOIS 2023. [[Paper]](https://dl.acm.org/doi/10.1145/3606368) [[Code]](https://multimodaldialog.wixsite.com/website)  
 
   - **Dual Semantic Knowledge Composed Multimodal Dialog Systems**  
     **Xiaolin Chen**, Xuemeng Song, Yinwei Wei, Liqiang Nie, and Tat-Seng Chua.  
-    In ACM SIGIR 2023 (full paper). [[Paper]](https://github.com/XiaolinChen-XL/xiaolinchen.github.io/files/SIGIR23) [[Code]](https://sigir2023.wixsite.com/anonymous7357)  
+    In ACM SIGIR 2023 (full paper). [[Paper]](https://dl.acm.org/doi/10.1145/3539618.3591673) [[Code]](https://sigir2023.wixsite.com/anonymous7357)  
 
   - **Do Vision-Language Transformers Exhibit Visual Commonsense? An Empirical Study of VCR**    
     Zhenyang Li, Yangyang Guo, Kejie Wang, **Xiaolin Chen**, Liqiang Nie, and Mohan Kankanhalli.   
-    In ACM MM 2023 (full paper). [[Paper]](https://github.com/XiaolinChen-XL/xiaolinchen.github.io/files/MM23.pdf)
+    In ACM MM 2023 (full paper). [[Paper]](https://arxiv.org/html/2405.16934v1)
 
   - **Mutual-enhanced Incongruity Learning Network for Multi-modal Sarcasm Detection**    
     Yang Qiao, Liqiang Jing, Xuemeng Song, **Xiaolin Chen**, Lei Zhu, and Liqiang Nie.   
-    In AAAI 2023 (full paper). [[Paper]](https://github.com/XiaolinChen-XL/xiaolinchen.github.io/files/AAAI23.pdf)    
+    In AAAI 2023 (full paper). [[Paper]](https://ojs.aaai.org/index.php/AAAI/article/view/26138)    
 
 **2021**
   - **Adversarial-Enhanced Hybrid Graph Network for User Identity Linkage**  
     **Xiaolin Chen**, Xuemeng Song, Guozhen Peng, Shanshan Feng, and Liqiang Nie.   
-    In ACM SIGIR 2021 (full paper). [[Paper]](https://github.com/XiaolinChen-XL/xiaolinchen.github.io/files/SIGIR2021.pdf) [[Code]](https://anonymous819.wixsite.com/ahg-net)    
+    In ACM SIGIR 2021 (full paper). [[Paper]](https://dl.acm.org/doi/10.1145/3404835.3462946) [[Code]](https://anonymous819.wixsite.com/ahg-net)    
 
   - **Modality-oriented Graph Learning toward Outfit Compatibility Modeling**  
     Xuemeng Song, Shi-Ting Fang, **Xiaolin Chen**, Yinwei Wei, Zhongzhou Zhao, and Liqiang Nie.
-    IEEE TMM, 2021. [[Paper]](http://haokunwen.github.io/files/tip2022.pdf) [[Code]](https://outfitcompatibility.wixsite.com/mocm-mgl)
+    IEEE TMM, 2021. [[Paper]](https://ieeexplore.ieee.org/document/9645182) [[Code]](https://outfitcompatibility.wixsite.com/mocm-mgl)
     
 **2020**
   - **User Identity Linkage across Social Media via Attentive Time-aware User Modeling**  
     **Xiaolin Chen**, Xuemeng Song, Siwei Cui, Tian Gan, Zhiyong Cheng, and Liqiang Nie.
-    IEEE TMM, 2020.  [[Paper]](https://github.com/XiaolinChen-XL/xiaolinchen.github.io/files/TMM.pdf) [[Code]](thttps://socialmediafpd.wixsite.com/usernet)   
+    IEEE TMM, 2020.  [[Paper]](https://ieeexplore.ieee.org/document/9246515) [[Code]](thttps://socialmediafpd.wixsite.com/usernet)   
 
   - **Fine-Grained Privacy Detection with Graph-Regularized Hierarchical Attentive Representation Learning**  
     **Xiaolin Chen**, Xuemeng Song, Ruiyang Ren, Lei Zhu, Zhiyong Cheng, and Liqiang Nie.
-    ACM TOIS, 2020. [[Paper]](https://github.com/XiaolinChen-XL/xiaolinchen.github.io/files/TOIS.pdf) [[Code]](https://github.com/Fine-grainedPrivacyDetection/GrHA/) 
+    ACM TOIS, 2020. [[Paper]](https://dl.acm.org/doi/10.1145/3406109) [[Code]](https://github.com/Fine-grainedPrivacyDetection/GrHA/) 
 
  
     
