@@ -11,9 +11,9 @@ title                    : "Xiaolin Chen's Homepage"
 title_separator          : "-"
 name                     : &name "Xiaolin Chen"
 description              : &description "Xiaolin Chen's Homepage"
-url                      : https://xiaolinchen.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://xiaolinchen-xl.github.io/ # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "XiaolinChen-XL/xiaolinchen.github.io"
+repository               : "XiaolinChen-XL/XiaolinChen-XL.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Xiaolin Chen / 陈潇琳"
-  avatar           : "cxl.jpg"
+  avatar           : "images/cxl.jpg"
   bio              : "Research Fellow @NUS"
   location         : # "HIT Campus of University Town of Shenzhen, Shenzhen, China "
   employer         :
