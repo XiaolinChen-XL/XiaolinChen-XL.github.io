@@ -15,7 +15,7 @@ Education & Experiences
 ---
   
 - **National University of Singapore**, Sep.2025 — Now        
-  - Research Fellow, School of Computing    
+  - Research Fellow, Institute of Data Science    
   - Supervisor: Prof. [Wynne Hsu](https://www.comp.nus.edu.sg/~whsu/) and Prof. [Mong Li Lee](https://www.comp.nus.edu.sg/~leeml/).    
   
 - **Shandong University**, Sep.2021 — Jun.2025  
