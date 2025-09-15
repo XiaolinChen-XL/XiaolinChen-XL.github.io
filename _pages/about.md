@@ -30,7 +30,8 @@ Education & Experiences
   - Master, School of Computer Science and Technology  
   - Supervisor: Prof. [Xuemeng Song](https://xuemengsong.github.io/) and Prof. [Liqiang Nie](https://liqiangnie.github.io/index.html).  
 
-  
+- **Shandong University of Science and Technology**, Sep.2014 — Jun.2028  
+  - Bachelor, Department of Information Engineering   
   
 
 
