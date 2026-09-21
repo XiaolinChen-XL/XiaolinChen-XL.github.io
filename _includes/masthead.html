@@ -1,0 +1,21 @@
+{% include base_path %}
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="hk-site-nav" class="hk-nav">
+        <a class="hk-nav-brand" href="{{ base_path }}/">{{ site.title }}</a>
+        <a href="{{ base_path }}/cv/" class="hk-mobile-cv">CV</a>
+        <button class="hk-mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="hk-nav-links">
+          <a href="{{ base_path }}/#about" data-home-section="about">About</a>
+          <a href="{{ base_path }}/#education" data-home-section="education">Education</a>
+          <a href="{{ base_path }}/#honors" data-home-section="honors">Honors &amp; Awards</a>
+          <a href="{{ base_path }}/publications/" class="{% if page.url == '/publications/' %}active-tab{% endif %}">Publications</a>
+          <a href="{{ base_path }}/cv/" class="{% if page.url == '/cv/' %}active-tab{% endif %}">CV</a>
+          <a href="{{ base_path }}/services/" class="{% if page.url == '/services/' %}active-tab{% endif %}">Services</a>
+        </div>
+        <a href="{{ base_path }}/cv/" class="hk-desktop-cv">CV</a>
+      </nav>
+    </div>
+  </div>
+</div>

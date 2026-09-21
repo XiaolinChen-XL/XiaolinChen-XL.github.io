@@ -1,0 +1,13 @@
+# main links
+main:
+  - title: "About"
+    url: /
+
+  - title: "Publications"
+    url: /publications/
+
+  - title: "CV"
+    url: /cv/
+
+  - title: "Services"
+    url: /services/

@@ -1,0 +1,136 @@
+<script src="{{ base_path }}/assets/js/main.min.js"></script>
+
+{% include analytics.html %}
+{% include /comments-providers/scripts.html %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.pathname === '/' && location.hash) {
+    var hashTarget = document.getElementById(location.hash.slice(1));
+    if (hashTarget) {
+      setTimeout(function () {
+        var header = document.querySelector('.masthead');
+        var top = hashTarget.getBoundingClientRect().top + window.pageYOffset - (header ? header.offsetHeight : 0) - 12;
+        window.scrollTo(0, Math.max(0, top));
+        var hashLink = document.querySelector('[data-home-section="' + hashTarget.id + '"]');
+        if (hashLink) {
+          document.querySelectorAll('[data-home-section]').forEach(function (link) { link.classList.remove('active-tab'); });
+          hashLink.classList.add('active-tab');
+        }
+      }, 60);
+    }
+  }
+
+  var menuToggle = document.querySelector('.hk-mobile-menu-toggle');
+  var navPanel = document.querySelector('.hk-nav-links');
+  if (menuToggle && navPanel) {
+    menuToggle.addEventListener('click', function () {
+      var open = navPanel.classList.toggle('hk-mobile-open');
+      menuToggle.classList.toggle('is-open', open);
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navPanel.addEventListener('click', function (e) {
+      if (!e.target.closest('a')) return;
+      navPanel.classList.remove('hk-mobile-open');
+      menuToggle.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  var filters = document.querySelector('.hk-pub-filters');
+  if (filters) {
+    var publications = Array.prototype.slice.call(document.querySelectorAll('.hk-publication'));
+    var pubSections = Array.prototype.slice.call(document.querySelectorAll('.hk-pub-section'));
+    function applyFilter(filter) {
+      publications.forEach(function (pub) {
+        pub.hidden = !(filter === 'all' || pub.dataset.pubType === filter);
+      });
+      pubSections.forEach(function (section) {
+        var visible = Array.prototype.filter.call(section.querySelectorAll('.hk-publication'), function (pub) { return !pub.hidden; });
+        section.hidden = visible.length === 0;
+        section.querySelectorAll('.hk-publication').forEach(function (pub) { pub.classList.remove('hk-last-visible'); });
+        if (visible.length) visible[visible.length - 1].classList.add('hk-last-visible');
+      });
+    }
+    filters.addEventListener('click', function (event) {
+      var button = event.target.closest('button[data-filter]');
+      if (!button) return;
+      filters.querySelectorAll('button[data-filter]').forEach(function (b) { b.classList.toggle('active', b === button); });
+      applyFilter(button.dataset.filter);
+    });
+    applyFilter('all');
+  }
+
+  var homeSections = Array.prototype.slice.call(document.querySelectorAll('#about, #education, #honors, #competitions'));
+  var homeLinks = Array.prototype.slice.call(document.querySelectorAll('[data-home-section]'));
+  if (homeSections.length && homeLinks.length) {
+    function activateHome(id) {
+      homeLinks.forEach(function (link) {
+        link.classList.toggle('active-tab', link.dataset.homeSection === id);
+      });
+    }
+    function activeFromPosition() {
+      var header = document.querySelector('.masthead');
+      var probe = (header ? header.offsetHeight : 0) + Math.min(120, window.innerHeight * .22);
+      var current = 'about';
+      homeSections.forEach(function (section) {
+        if (section.getBoundingClientRect().top <= probe) current = section.id;
+      });
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = 'competitions';
+      activateHome(current);
+    }
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { activeFromPosition(); ticking = false; });
+    }, {passive:true});
+    homeLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var target = document.getElementById(link.dataset.homeSection);
+        if (!target) return;
+        e.preventDefault();
+        var header = document.querySelector('.masthead');
+        var top = target.getBoundingClientRect().top + window.pageYOffset - (header ? header.offsetHeight : 0) - 12;
+        window.scrollTo({top: Math.max(0, top), behavior: 'smooth'});
+        history.replaceState(null, '', '#' + target.id);
+        activateHome(target.id);
+      });
+    });
+    activeFromPosition();
+  }
+
+  var nextUrl = {{ page.hk_next_url | default: "" | jsonify }};
+  var prevUrl = {{ page.hk_prev_url | default: "" | jsonify }};
+  if ((nextUrl || prevUrl) && window.matchMedia('(min-width: 761px) and (hover: hover)').matches) {
+    var accumulated = 0, lastWheel = 0, leaving = false, direction = null;
+    window.addEventListener('wheel', function (e) {
+      if (leaving || Math.abs(e.deltaY) < 2) return;
+      var bottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      var top = window.scrollY <= 1;
+      var wanted = null, cssClass = null;
+
+      if (e.deltaY > 0 && bottom && nextUrl) {
+        wanted = nextUrl; cssClass = 'hk-page-exit-up';
+      } else if (e.deltaY < 0 && top && prevUrl) {
+        wanted = prevUrl; cssClass = 'hk-page-exit-down';
+      } else {
+        accumulated = 0; direction = null; return;
+      }
+
+      var newDirection = e.deltaY > 0 ? 'down' : 'up';
+      var now = Date.now();
+      if (now - lastWheel > 450 || direction !== newDirection) accumulated = 0;
+      lastWheel = now;
+      direction = newDirection;
+      accumulated += Math.abs(e.deltaY);
+
+      if (accumulated >= 180) {
+        leaving = true;
+        document.body.classList.add(cssClass);
+        setTimeout(function () { window.location.href = wanted; }, 260);
+      }
+    }, {passive:true});
+  }
+});
+</script>

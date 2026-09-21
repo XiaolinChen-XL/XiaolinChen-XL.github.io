@@ -1,0 +1,12 @@
+{% include base_path %}
+<div class="page__footer-copyright">
+  <!-- 1. 版权信息部分 -->
+  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+
+  <!-- 2. 更新日期部分 (放在同一个 div 里面) -->
+  <br>
+  <span style="font-size: 0.9em; color: #888;">
+    Site last updated: {{ site.time | date: "%B %d, %Y" }}
+  </span>
+</div>
+

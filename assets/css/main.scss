@@ -1,0 +1,3012 @@
+---
+---
+
+/*
+ *    Minimal Mistakes Jekyll Theme
+ *
+ *  - Michael Rose
+ *  - mademistakes.com
+ *  - https://twitter.com/mmistakes
+ *
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import "vendor/breakpoint/breakpoint"; // media query mixins
+@import "variables";
+@import "mixins";
+@import "vendor/susy/susy";
+
+@import "reset";
+@import "base";
+
+@import "utilities";
+@import "animations";
+@import "tables";
+@import "buttons";
+@import "notices";
+@import "masthead";
+@import "navigation";
+@import "footer";
+@import "syntax";
+
+@import "forms";
+
+@import "page";
+@import "archive";
+@import "sidebar";
+
+@import "vendor/font-awesome/fontawesome";
+@import "vendor/font-awesome/solid";
+@import "vendor/font-awesome/brands";
+@import "vendor/magnific-popup/magnific-popup";
+@import "print";
+
+/* === 自定义加粗样式 (粘贴在 main.scss 底部) === */
+strong, b {
+  color: #0e2e4e !important;   /* 极深的蓝黑色 */
+  font-weight: bold;
+}
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 16px; /* 确保字号适中 */
+}
+
+/* 让标题更粗更黑，突出层级 */
+h1, h2, h3 {
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: -0.3px; /* 稍微收紧字间距，显得精致 */
+}
+
+/* === Publications 列表美化 === */
+
+/* 每一篇论文的容器 */
+.pub-item {
+    margin-bottom: 25px; /* 论文之间的间距 */
+    padding-left: 10px;
+    border-left: 3px solid #eee; /* 左侧加一条淡淡的线，增加设计感 */
+    transition: all 0.2s;
+}
+
+.pub-item:hover {
+    border-left-color: #0056b3; /* 鼠标悬停时左侧线变蓝 */
+}
+
+/* 论文标题 */
+.pub-title {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #000; /* 标题纯黑 */
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* 作者列表 */
+.pub-authors {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+/* 会议/期刊名称 */
+.pub-venue {
+    font-style: italic;
+    color: #0056b3; /* 使用你的主题蓝 */
+    font-weight: 600;
+    font-size: 0.9em;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* 链接按钮组 */
+.pub-links a {
+    display: inline-block;
+    padding: 2px 8px;
+    margin-right: 5px;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #0056b3 !important;
+    border: 1px solid #0056b3;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.pub-links a:hover {
+    background-color: #0056b3;
+    color: #fff !important; /* 悬停变成实心蓝 */
+}
+/* 美化 BibTeX 折叠框 & 论文标题 */
+details {
+    margin-top: 5px;
+    margin-bottom: 0px; /* 紧贴下方作者 */
+    margin-left: 20px;
+    font-size: 0.9em;
+}
+
+summary {
+    cursor: pointer;
+    /* 重点修改：这里使用了你定义的深蓝黑色 #0e2e4e */
+    color: #0e2e4e !important; 
+    font-weight: 700 !important; /* 确保加粗 */
+    font-size: 1.15em;           /* 统一字号，不用在HTML里写了 */
+    line-height: 1.3;
+    outline: none;
+    list-style: none; /* 隐藏部分浏览器的默认三角，为了美观 */
+}
+
+/* 隐藏默认小三角的兼容写法 */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary:hover {
+    /* 鼠标悬停时变亮一点的蓝色，提示可点击 */
+    color: #0056b3 !important; 
+    text-decoration: none;
+}
+
+/* 代码块样式 (保持不变) */
+details pre {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    overflow-x: auto;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.45;
+}
+/* 作者列表的统一样式 */
+.pub-content {
+    margin-top: 2px;
+    margin-bottom: 30px;
+    margin-left: 20px; /* 统一缩进 */
+}
+/* === Services 页面美化 === */
+
+/* 1. 布局容器：大屏双栏，小屏单栏 */
+.services-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 1:1 等分 */
+    gap: 25px; /* 卡片间距 */
+    margin-top: 20px;
+}
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+    .services-wrapper {
+        grid-template-columns: 1fr; /* 变回单栏 */
+    }
+}
+
+/* 2. 卡片样式 */
+.service-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 4px solid #0e2e4e; /* 顶部加上你的主题深色条 */
+}
+
+.service-card:hover {
+    transform: translateY(-3px); /* 鼠标悬停轻微上浮 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* 3. 标题样式 */
+.service-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #0e2e4e;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* 图标占位符 */
+.service-title i {
+    margin-right: 8px;
+    color: #0056b3;
+}
+
+/* 4. 列表样式 */
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-list li {
+    padding: 6px 0;
+    border-bottom: 1px dashed #f0f0f0; /* 虚线分割 */
+    color: #444;
+    font-size: 0.95em;
+    display: flex;
+    justify-content: space-between; /* 让文字两端对齐 */
+}
+
+.service-list li:last-child {
+    border-bottom: none;
+}
+
+/* 强调会议名称 */
+.venue-name {
+    font-weight: 600;
+    color: #333;
+}
+/* === 论文类型标签样式 === */
+
+.pub-tag {
+    display: inline-block;
+    padding: 2px 8px;       /* 左右变宽，字显得大气 */
+    border-radius: 4px;     /* 圆角 */
+    font-size: 0.8em;       /* 字体稍微调大一点点 */
+    font-weight: 700;       /* 加粗 */
+    margin-right: 8px;      /* 右边留出间距 */
+    vertical-align: middle; /* 垂直居中对齐 */
+    border: 1px solid;      /* 保留精致边框 */
+}
+
+/* 会议标签 (使用你的主题蓝) */
+.tag-conf {
+    color: #0056b3;
+    border-color: #0056b3;
+    background-color: #eef6fc; /* 极淡的蓝色背景 */
+}
+
+/* 期刊标签 (使用深红色/橙色，以示区别) */
+.tag-journal {
+    color: #c0392b;
+    border-color: #c0392b;
+    background-color: #f9ebea; /* 极淡的红色背景 */
+}
+
+/* 预印本标签 (使用灰色) */
+.tag-preprint {
+    color: #7f8c8d;
+    border-color: #7f8c8d;
+    background-color: #f4f6f6;
+}
+/* 获奖/竞赛标签 (金色系) */
+.tag-award {
+    color: #d48806;          /* 深金色文字，保证阅读清晰 */
+    border-color: #d48806;   /* 金色边框 */
+    background-color: #fffbe6; /* 极淡的暖黄色背景 */
+}
+
+/* === Education & Bio 样式美化 === */
+
+/* 1. 简介 Bio 区域 */
+.bio-text {
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: justify; /* 两端对齐，看起来更整齐 */
+}
+
+/* 2. 教育经历容器 */
+.edu-container {
+    display: flex;         /* 开启弹性布局 */
+    flex-direction: column;
+    gap: 20px;             /* 每个学校之间的间距 */
+}
+
+/* 单个学校卡片 */
+.edu-item {
+    display: flex;
+    align-items: center;   /* 垂直居中 */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #eee; /* 淡淡的边框 */
+    transition: all 0.2s ease;
+}
+
+.edu-item:hover {
+    background-color: #fcfcfc;
+    border-color: #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* 悬停时微微浮起 */
+}
+
+/* Logo 区域 */
+.edu-logo {
+    flex-shrink: 0;        /* 防止 Logo 被压缩 */
+    width: 80px;           /* 统一 Logo 宽度 */
+    height: 80px;
+    margin-right: 20px;    /* Logo 和文字的间距 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edu-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;   /* 保持图片比例 */
+}
+
+/* 文字区域 */
+.edu-info {
+    flex-grow: 1;
+}
+
+.edu-school {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #0e2e4e; /* 你的主题深蓝 */
+    margin-bottom: 2px;
+}
+
+.edu-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between; /* 让时间靠右显示 */
+}
+
+.edu-role {
+    font-weight: 600;
+    color: #333;
+}
+
+.edu-desc {
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.4;
+}
+
+/* 手机端适配：时间换行显示 */
+@media (max-width: 600px) {
+    .edu-meta {
+        flex-direction: column;
+    }
+}
+
+/* === Honors & Patents 页面美化 === */
+
+/* 1. 专利标签 (紫色) */
+.tag-patent {
+    color: #6f42c1;
+    border-color: #6f42c1;
+    background-color: #f3f0ff; /* 极淡的紫色背景 */
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-right: 8px;
+    vertical-align: middle;
+    border: 1px solid;
+}
+
+/* 申请中/审查中 (Pending) - 使用蓝灰色，低调专业 */
+.tag-pending {
+    color: #535c68;            /* 蓝灰色文字 */
+    border-color: #535c68;     /* 蓝灰色边框 */
+    background-color: #f1f2f6; /* 极淡的灰背景 */
+    
+    /* 保持和其他标签一样的尺寸 */
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-right: 8px;
+    vertical-align: middle;
+    border: 1px solid;
+}
+
+/* 2. 获奖列表样式 (时间轴风格) */
+
+/* === Honors & Awards 最终美化版 (白卡片悬浮风格) === */
+
+.award-list {
+    list-style: none;
+    padding: 0 0 0 20px;
+    margin: 20px 0;
+    border-left: 2px solid #f0f0f0;
+    position: relative;
+}
+
+.award-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;     /* 卡片间距也稍微减小，更紧凑 */
+    position: relative;
+}
+
+/* 1. 圆点位置修正 */
+.award-item::before {
+    content: '';
+    position: absolute;
+    left: -27px; 
+    top: 20px;   /* ✨上移：因为卡片变矮了，圆点也要跟着往上走 (原26px -> 20px) */
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 3px solid #ced4da;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 0 3px #fff; 
+    transition: all 0.3s ease;
+}
+
+.award-item:hover::before {
+    border-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.award-item.gold::before {
+    border-color: #f1c40f;
+    background: #fffbe6;
+}
+
+/* 2. 年份位置修正 */
+.award-year {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1em;
+    color: #0e2e4e;
+    min-width: 50px;
+    margin-right: 20px;
+    padding-top: 14px; /* ✨减小：与卡片文字起始位置对齐 (原18px -> 12px) */
+    text-align: right;
+    line-height: 1.2;
+}
+
+/* 3. 卡片高度变窄 */
+.award-content {
+    flex-grow: 1;
+    background: #fcfcfc;
+    padding: 12px 20px;  /* ✨减小：上下内边距变小，方框高度缩减 (原18px -> 12px) */
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.award-item:hover .award-content {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+    border-color: #e9ecef;
+}
+
+/* 4. 左侧小三角 (位置微调) */
+.award-content::after {
+    content: '';
+    position: absolute;
+    top: 18px;   /* ✨上移：跟随圆点高度 (原24px -> 18px) */
+    left: -6px;
+    width: 10px;
+    height: 10px;
+    background: #fcfcfc; /* 颜色要和卡片背景一致 */
+    border-left: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    transform: rotate(45deg);
+}
+.award-item:hover .award-content::after {
+    background: #fff; /* 悬停时变白 */
+}
+
+/* 标题和描述 */
+.award-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #222;
+    display: block;
+    margin-bottom: 3px; /* 减小标题和下方文字的间距 */
+    line-height: 1.2;
+}
+
+.award-desc {
+    font-size: 0.95em;
+    color: #666;
+    display: block;
+    line-height: 1.4;
+}
+
+/* 图标 */
+.award-title i {
+    margin-right: 8px;
+}
+
+/* === 顶部导航栏美化 (Navigation Bar) === */
+
+/* === 强制头像变长方形 === */
+/* === 强制头像长方形 + 缩小尺寸 === */
+.author__avatar img {
+    /* 1. 调整大小：这里改为 70% 或者具体的像素如 180px */
+    width: 100% !important; 
+    max-width: 350px !important; /* 限制最大宽度，防止过大 */
+    
+    /* 2. 保持比例 */
+    height: auto !important;
+    object-fit: cover;
+    
+    /* 3. 形状圆角 */
+    border-radius: 6px !important;
+
+    /* 4. 强制图片居中 */
+    display: block !important;
+    margin: 0 auto !important; 
+}
+
+/* === 隐藏页面顶部的大标题 (如 Patents, Publications) === */
+.page__title {
+    display: none !important;
+}
+/* === 修复隐藏标题后的顶部留白 === */
+
+/* 1. 消除内容容器的顶部内边距 */
+.page__inner-wrap {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* 2. 针对 archive 布局 (Publications/Patents) 的第一个标题 */
+/* 同时尝试多种选择器，确保命中 */
+.archive h2:first-of-type,
+.page__content h2:first-of-type,
+.page__content > h2:first-child,
+h2#preprints { /* 针对 Preprints 这个特定 ID */
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    
+    /* 🔥 核武器：如果还是不够高，用负边距强行往上提 */
+    /* 你可以根据实际情况调整这个数字，比如 -10px 或 -20px */
+    margin-top: 0px !important; 
+}
+
+/* 3. 针对 Services 这种普通页面的第一个内容 */
+.page__content .services-wrapper {
+    margin-top: -10px !important;
+}
+
+
+
+/* === 页脚 (Footer) 终极美化 === */
+
+.page__footer {
+    /* 1. 背景颜色：稍微暗一点点的浅灰色，不刺眼 */
+    background-color: #f3f3f3 !important; 
+    
+    /* 2. 布局：强制居中 */
+    text-align: center !important;
+    display: block !important;
+    float: none !important;
+    
+    /* 3. 尺寸：变窄一点 */
+    padding-top: 15px !important;    /* 上下留白减小 */
+    padding-bottom: 15px !important; 
+    margin-top: 40px !important;     /* 与正文拉开距离 */
+    
+    /* 4. 边框：顶部加一条深一点的线，增加层次感 */
+    border-top: 1px solid #ddd !important;
+    color: #666 !important;
+}
+
+/* 内部容器强制铺满并居中 */
+.page__footer footer {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    float: none !important;
+    display: flex;             /* 使用 Flex 布局辅助居中 */
+    justify-content: center;   /* 水平居中 */
+    flex-direction: column;    /* 垂直排列 */
+}
+
+/* 版权文字样式 */
+.page__footer-copyright {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.9em !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important; /* 再次强制居中 */
+}
+
+/* 链接样式 */
+.page__footer-copyright a {
+    color: #0056b3 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* === 修复导航栏标题左侧对齐 === */
+/* === 修复左侧对齐 (针对你的特殊布局) === */
+
+/* === 强制导航栏标题左移 (视觉位移法) === */
+
+/* 1. 针对包含标题的那个列表项 */
+.masthead__menu-item--lg {
+    /* 使用 transform 强制向左平移 */
+    /* 你可以调整这个数字：-20px, -30px, -40px 直到对齐为止 */
+    transform: translateX(-20px) !important; 
+    
+    /* 辅助：消除可能存在的默认内边距 */
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* 2. 同时修正整个菜单列表的左侧间距 (以防万一) */
+.masthead .visible-links {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* 3. 手机端恢复原状 (防止移出屏幕) */
+@media (max-width: 768px) {
+    .masthead__menu-item--lg {
+        transform: none !important; /* 手机上不移动 */
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+}
+
+
+/* === 导航栏高亮 (清新空气感版) === */
+.masthead .visible-links a.active-tab,
+.greedy-nav .visible-links a.active-tab {
+    /* 1. 背景：使用透明度极高的蓝色，非常清爽 */
+    background-color: rgba(0, 86, 179, 0.08) !important;
+    
+    /* 2. 文字：使用标准的主题蓝 */
+    color: #0056b3 !important;
+    
+    /* 3. 形状：圆角稍微小一点，显得干练 */
+    border-radius: 6px;
+    
+    /* 4. 去掉重口味的边框和阴影 */
+    border: none !important;
+    box-shadow: none !important;
+    
+    /* 5. 布局保持不变 */
+    padding: 6px 16px !important;
+    /* margin-left 会在下一步统一调整 */
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+
+/* 悬停时稍微加深一点点背景 */
+.masthead .visible-links a.active-tab:hover {
+    background-color: rgba(0, 86, 179, 0.15) !important;
+}
+
+/* 隐藏下划线 */
+.masthead .visible-links a.active-tab::after {
+    display: none !important;
+}
+
+/* === 导航栏紧急修复 & 最终美化 === */
+
+/* 1. 恢复容器默认布局 (千万不要用 flex，会冲突！) */
+.masthead .visible-links,
+.greedy-nav .visible-links {
+    display: inline-block !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    /* 消除 inline-block 元素之间的默认间隙 */
+    font-size: 0; 
+}
+
+/* 2. 链接样式 (恢复字号，设置紧凑间距) */
+.masthead .visible-links a,
+.greedy-nav .visible-links a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 18px !important;       /* 直接写像素值 (18px 约等于 1.15em)，更稳 */
+    font-weight: 600 !important;
+    color: #555 !important;
+    
+    /* --- 关键：紧凑布局 --- */
+    display: inline-block !important;
+    margin-left: 0px !important;      /* 极小的左间距，让它们靠在一起 */
+    margin-right: 25px !important;     /* 右边也留一点点 */
+    
+    text-decoration: none !important;
+    padding: 6px 12px !important;     /* 给文字周围留出呼吸空间 */
+    position: relative;
+    background: none !important;
+}
+
+/* 3. 激活状态 (清新空气感底框) */
+.masthead .visible-links a.active-tab,
+.greedy-nav .visible-links a.active-tab {
+    /* 背景：极淡的透明蓝 */
+    background-color: rgba(0, 86, 179, 0.08) !important;
+    color: #0056b3 !important;
+    border-radius: 6px;
+    
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 悬停微调 */
+.masthead .visible-links a:hover {
+    color: #0056b3 !important;
+    background-color: rgba(0, 86, 179, 0.03) !important; /* 悬停也有极淡背景 */
+    border-radius: 6px;
+}
+
+/* 4. 确保所有下划线和线条都消失 */
+.masthead .visible-links a::after,
+.masthead .visible-links a.active-tab::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* 5. 标题左移 (保持你之前的设置) */
+.masthead__menu-item--lg {
+    transform: translateX(-20px) !important;
+    margin-right: 10px !important; /* 标题右边稍微留点空，不要贴着第一个链接 */
+}
+
+
+/* homepage-v1 */
+.hk-home { max-width: 760px; }
+.hk-about { font-size: 1.03em; line-height: 1.72; margin-bottom: 2.2rem; }
+.hk-news { margin-bottom: 3rem; }
+.hk-news h2, .hk-selected h2 { font-size: 1.35em; margin: 0 0 .85rem; color: #202124; }
+.hk-news ul { list-style: none; padding: 0; margin: 0; }
+.hk-news li { padding: .36rem 0; line-height: 1.55; color: #444; }
+.hk-news li span { display: inline-block; width: 74px; color: #888; font-size: .9em; }
+.hk-section-note { margin: -.35rem 0 1.25rem; color: #777; font-size: .9em; }
+.hk-pub { padding: 1.05rem 0 1.15rem; border-bottom: 1px solid #ececec; transition: transform .18s ease; }
+.hk-pub:first-of-type { border-top: 1px solid #ececec; }
+.hk-pub:hover { transform: translateX(3px); }
+.hk-pub h3 { margin: 0 0 .35rem; font-size: 1.03em; line-height: 1.45; font-weight: 650; color: #222; }
+.hk-pub p { margin: .18rem 0; font-size: .91em; line-height: 1.55; color: #555; }
+.hk-pub .hk-venue { color: #777; font-size: .86em; }
+.hk-all-link { margin-top: 1.25rem; font-size: .92em; font-weight: 600; }
+@media (max-width: 600px) {
+  .hk-news li span { width: auto; margin-right: .55rem; }
+  .hk-pub:hover { transform: none; }
+}
+
+
+/* PRISM-inspired restrained profile motion */
+.sidebar .author__avatar { animation: hkProfileIn .55s ease-out both; }
+.sidebar .author__avatar img {
+  transition: transform .22s ease, box-shadow .22s ease !important;
+}
+.sidebar .author__avatar img:hover {
+  transform: translateY(-3px) scale(1.018);
+  box-shadow: 0 10px 26px rgba(0,0,0,.12);
+}
+.sidebar .author__content { animation: hkProfileIn .55s ease-out .08s both; }
+.sidebar .author__urls-wrapper { animation: hkProfileIn .55s ease-out .16s both; }
+.sidebar .author__urls li { transition: transform .18s ease; }
+.sidebar .author__urls li:hover { transform: translateX(3px); }
+
+.hk-cv { max-width: 780px; }
+.hk-edu {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 22px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid #ececec;
+  line-height: 1.65;
+}
+.hk-edu img { width: 96px; max-height: 48px; object-fit: contain; margin-top: 3px; }
+.hk-edu strong { font-size: 1.02em; color: #222; }
+.hk-edu strong + span { float: right; color: #888; font-size: .86em; font-weight: 400; }
+.hk-joint { margin-top: 7px; padding-left: 13px; border-left: 2px solid #e4e8ee; color: #666; font-size: .9em; }
+.hk-honor { display: grid; grid-template-columns: 62px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+.hk-honor span { color: #888; font-size: .9em; }
+.hk-honor small { grid-column: 2; color: #777; margin-top: -6px; }
+
+@keyframes hkProfileIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+  .hk-edu { grid-template-columns: 1fr; gap: 10px; }
+  .hk-edu img { width: 88px; }
+  .hk-edu strong + span { float: none; display: block; margin-top: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar .author__avatar, .sidebar .author__content, .sidebar .author__urls-wrapper { animation: none; }
+}
+
+
+/* Header alignment, justified About, and light/dark theme */
+.greedy-nav { display: flex !important; align-items: center; width: 100%; }
+.masthead .visible-links, .greedy-nav .visible-links {
+  display: flex !important; align-items: center; width: 100%; font-size: initial !important;
+}
+.masthead .visible-links .masthead__menu-item--lg { margin-right: auto !important; transform: none !important; }
+.masthead .visible-links .masthead__menu-item:not(.masthead__menu-item--lg) { flex: 0 0 auto; }
+.masthead .visible-links a, .greedy-nav .visible-links a { margin-right: 8px !important; }
+.hk-about p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+
+.hk-theme-toggle {
+  flex: 0 0 auto; border: 0; background: transparent; color: #555;
+  padding: 8px 10px; cursor: pointer; font-size: 16px; border-radius: 6px;
+}
+.hk-theme-toggle:hover { color: #0056b3; background: rgba(0,86,179,.05); }
+
+html.hk-dark body { background: #15171a; color: #d9dde3; }
+html.hk-dark .masthead, html.hk-dark .greedy-nav { background: #15171a !important; }
+html.hk-dark .masthead { border-bottom-color: #30343a !important; }
+html.hk-dark .masthead .visible-links a, html.hk-dark .greedy-nav .visible-links a { color: #c9ced6 !important; }
+html.hk-dark .masthead .visible-links a:hover { color: #8ab4f8 !important; background: rgba(138,180,248,.07) !important; }
+html.hk-dark .masthead .visible-links a.active-tab { color: #8ab4f8 !important; background: rgba(138,180,248,.10) !important; }
+html.hk-dark .hk-theme-toggle { color: #c9ced6; }
+html.hk-dark .archive, html.hk-dark .page__content, html.hk-dark .sidebar { color: #d9dde3; }
+html.hk-dark .archive h1, html.hk-dark .archive h2, html.hk-dark .archive h3,
+html.hk-dark .page__content h1, html.hk-dark .page__content h2, html.hk-dark .page__content h3,
+html.hk-dark .author__name, html.hk-dark .hk-pub h3, html.hk-dark .hk-edu strong { color: #f1f3f5 !important; }
+html.hk-dark a { color: #8ab4f8; }
+html.hk-dark .hk-pub, html.hk-dark .hk-edu, html.hk-dark .hk-honor { border-color: #30343a; }
+html.hk-dark .hk-pub p, html.hk-dark .hk-pub .hk-venue, html.hk-dark .hk-section-note,
+html.hk-dark .hk-joint, html.hk-dark .author__bio, html.hk-dark .author__urls li { color: #aeb5bf; }
+html.hk-dark .page__footer { background: #111315 !important; border-top-color: #30343a !important; color: #aeb5bf !important; }
+html.hk-dark .author__avatar img { box-shadow: 0 8px 26px rgba(0,0,0,.35); }
+
+@media (max-width: 768px) {
+  .greedy-nav { display: block !important; }
+  .masthead .visible-links, .greedy-nav .visible-links { display: inline-block !important; width: auto; }
+  .hk-theme-toggle { position: absolute; right: 48px; top: 7px; }
+}
+
+
+/* Final navigation/link/CV refinements */
+.hk-about a {
+  color: #174a7e !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  font-weight: 500;
+}
+.hk-about a:hover { color: #0b3158 !important; }
+
+@media (min-width: 769px) {
+  .greedy-nav { display: flex !important; align-items: center !important; }
+  .greedy-nav > .visible-links { display: flex !important; flex: 1 1 auto !important; align-items: center !important; width: auto !important; }
+  .greedy-nav > .visible-links > .masthead__menu-item--lg { margin-right: auto !important; }
+  .greedy-nav > .visible-links > .masthead__menu-item:not(.masthead__menu-item--lg) { flex: 0 0 auto !important; }
+  .greedy-nav > .hk-theme-toggle { margin-left: 2px; margin-right: 4px; }
+}
+
+.hk-cv > h2 { margin: 1.4rem 0 .5rem; padding-bottom: .45rem; border-bottom: 1px solid #e8e8e8; font-size: 1.3em; }
+.hk-edu-body { min-width: 0; }
+.hk-edu-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+.hk-edu-head > span { flex: 0 0 auto; color: #888; font-size: .86em; }
+.hk-degree { margin-top: 4px; color: #444; }
+.hk-supervisor { margin-top: 2px; color: #777; font-size: .9em; }
+.hk-joint-card {
+  display: grid; grid-template-columns: 82px 1fr; gap: 14px; align-items: center;
+  margin-top: 14px; padding: 13px 15px; border: 1px solid #e8ebef; border-radius: 8px;
+  background: #fafbfc;
+}
+.hk-joint-card img { width: 70px; max-height: 38px; object-fit: contain; margin: 0; }
+.hk-joint-card strong { display: block; font-size: .94em; color: #30343a; }
+.hk-joint-role { display: block; margin-top: 2px; color: #555; font-size: .88em; }
+.hk-joint-meta { display: block; margin-top: 1px; color: #858b94; font-size: .82em; }
+
+html.hk-dark .hk-about a { color: #91bdf0 !important; }
+html.hk-dark .hk-about a:hover { color: #b8d5f5 !important; }
+html.hk-dark .hk-cv > h2 { border-color: #30343a; }
+html.hk-dark .hk-degree { color: #c2c7ce; }
+html.hk-dark .hk-supervisor { color: #9fa6b0; }
+html.hk-dark .hk-joint-card { background: #1b1e22; border-color: #30343a; }
+html.hk-dark .hk-joint-card strong { color: #e7e9ec !important; }
+html.hk-dark .hk-joint-role { color: #bdc3cb; }
+html.hk-dark .hk-joint-meta { color: #9098a3; }
+
+@media (max-width: 600px) {
+  .hk-edu-head { display: block; }
+  .hk-edu-head > span { display: block; margin-top: 2px; }
+  .hk-joint-card { grid-template-columns: 70px 1fr; padding: 11px; }
+  .hk-joint-card img { width: 60px; }
+}
+
+
+/* 2026-09-18 targeted fixes */
+.hk-about p {
+  text-align: justify !important;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+.hk-about p a,
+.hk-home .hk-about p a:link,
+.hk-home .hk-about p a:visited {
+  color: #173f67 !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+.hk-about p a:hover { color: #0b2d4d !important; text-decoration: none !important; }
+
+/* Keep the native greedy-nav mechanics intact; only distribute desktop items. */
+@media (min-width: 769px) {
+  .masthead__menu { position: relative; }
+  .greedy-nav { display: block !important; }
+  .greedy-nav .visible-links {
+    display: flex !important;
+    align-items: center;
+    width: 100% !important;
+    padding-right: 42px !important;
+  }
+  .greedy-nav .visible-links .masthead__menu-item--lg {
+    margin-right: auto !important;
+    transform: none !important;
+  }
+  .greedy-nav .visible-links .masthead__menu-item:not(.masthead__menu-item--lg) { flex: 0 0 auto; }
+  .hk-theme-toggle {
+    display: block !important;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+  }
+}
+@media (max-width: 768px) {
+  .hk-theme-toggle { display: block !important; position: absolute; right: 48px; top: 9px; z-index: 20; }
+}
+
+/* Compact selected publications. */
+.hk-selected .hk-pub { padding: .72rem 0 .78rem !important; }
+.hk-selected .hk-pub h3 { margin-bottom: .22rem !important; line-height: 1.38; }
+.hk-selected .hk-pub p { margin: .10rem 0 !important; line-height: 1.48; }
+.hk-selected .hk-section-note { margin-bottom: .75rem !important; }
+
+/* White joint-experience rows: logo remains visually clean. */
+.hk-joint-card {
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 1px solid #e5e8ec !important;
+  border-radius: 0 !important;
+  margin-top: 12px !important;
+  padding: 12px 0 2px !important;
+}
+.hk-joint-card + .hk-joint-card { margin-top: 8px !important; }
+html.hk-dark .hk-joint-card {
+  background: transparent !important;
+  border-color: #34383e !important;
+}
+
+/* Publication filters */
+.hk-pub-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 1.5rem;
+}
+.hk-pub-filters button {
+  appearance: none;
+  border: 1px solid #dfe3e8;
+  background: #fff;
+  color: #59636f;
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-size: .82em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.hk-pub-filters button:hover { border-color: #9fb1c4; color: #173f67; }
+.hk-pub-filters button.active { background: #173f67; border-color: #173f67; color: #fff; }
+html.hk-dark .hk-pub-filters button { background: #1b1e22; border-color: #34383e; color: #b8c0ca; }
+html.hk-dark .hk-pub-filters button.active { background: #8ab4f8; border-color: #8ab4f8; color: #121417; }
+
+
+/* Stable custom navigation: do not use AcademicPages greedy-nav JS. */
+.hk-nav {
+  display: flex;
+  align-items: center;
+  min-height: 58px;
+  width: 100%;
+  background: #fff;
+}
+.hk-nav-brand {
+  flex: 0 0 auto;
+  color: #2f343b !important;
+  text-decoration: none !important;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.hk-nav-links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hk-nav-links > a {
+  color: #555 !important;
+  text-decoration: none !important;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 7px 11px;
+  border-radius: 6px;
+}
+.hk-nav-links > a:hover { color: #174a7e !important; background: rgba(23,74,126,.05); }
+.hk-nav-links > a.active-tab { color: #174a7e !important; background: rgba(23,74,126,.08); }
+.hk-nav .hk-theme-toggle {
+  position: static !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  transform: none !important;
+  margin-left: 3px;
+}
+html.hk-dark .hk-nav { background: #15171a; }
+html.hk-dark .hk-nav-brand { color: #f1f3f5 !important; }
+html.hk-dark .hk-nav-links > a { color: #c9ced6 !important; }
+html.hk-dark .hk-nav-links > a:hover,
+html.hk-dark .hk-nav-links > a.active-tab { color: #8ab4f8 !important; background: rgba(138,180,248,.08); }
+
+.hk-selected .hk-pub { padding: .52rem 0 .56rem !important; }
+.hk-selected .hk-pub h3 { margin: 0 0 .14rem !important; }
+.hk-selected .hk-pub p { margin: .05rem 0 !important; line-height: 1.42; }
+
+@media (max-width: 760px) {
+  .hk-nav { min-height: 54px; }
+  .hk-nav-brand { font-size: 16px; }
+  .hk-nav-links { gap: 0; overflow-x: auto; }
+  .hk-nav-links > a { font-size: 13px; padding: 7px 6px; }
+  .hk-nav .hk-theme-toggle { padding: 7px 5px; }
+}
+
+
+/* Theme toggle visibility and tighter CV education */
+.hk-nav .hk-theme-toggle {
+  width: 32px;
+  height: 32px;
+  padding: 0 !important;
+  border: 1px solid #e1e5ea !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  color: #3f4852 !important;
+  cursor: pointer;
+}
+.hk-theme-glyph {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  line-height: 28px;
+  text-align: center;
+}
+.hk-nav .hk-theme-toggle:hover {
+  border-color: #9eabb8 !important;
+  color: #173f67 !important;
+  background: rgba(23,63,103,.04) !important;
+}
+html.hk-dark .hk-nav .hk-theme-toggle {
+  border-color: #41464d !important;
+  color: #e3e6ea !important;
+}
+html.hk-dark .hk-nav .hk-theme-toggle:hover { color: #8ab4f8 !important; }
+
+.hk-cv .hk-edu { padding: 13px 0 !important; gap: 18px !important; }
+.hk-cv .hk-edu img { margin-top: 1px; }
+.hk-cv .hk-joint-card { margin-top: 8px !important; padding: 8px 0 1px !important; }
+.hk-cv .hk-joint-card + .hk-joint-card { margin-top: 5px !important; }
+.hk-cv .hk-degree { margin-top: 2px; }
+.hk-cv .hk-supervisor { margin-top: 1px; }
+.hk-cv .hk-supervisor a,
+.hk-cv .hk-joint-meta a {
+  color: #173f67 !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+.hk-cv .hk-supervisor a:hover,
+.hk-cv .hk-joint-meta a:hover { color: #0b2d4d !important; }
+html.hk-dark .hk-cv .hk-supervisor a,
+html.hk-dark .hk-cv .hk-joint-meta a { color: #91bdf0 !important; }
+
+
+
+/* Service page: compact, understated academic lists */
+.services-wrapper {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px !important;
+  margin-top: 6px !important;
+  align-items: start;
+}
+.service-card {
+  padding: 13px 16px 11px !important;
+  border: 1px solid #e7e9ec !important;
+  border-top: 2px solid #173f67 !important;
+  border-radius: 5px !important;
+  box-shadow: none !important;
+  background: #fff !important;
+}
+.service-card:hover {
+  transform: none !important;
+  box-shadow: 0 3px 10px rgba(0,0,0,.035) !important;
+  border-color: #d9dde2 !important;
+  border-top-color: #173f67 !important;
+}
+.service-title {
+  font-size: 1.02em !important;
+  margin-bottom: 7px !important;
+  padding-bottom: 7px !important;
+  border-bottom: 1px solid #eceef1 !important;
+}
+.service-title i { font-size: .9em; color: #173f67 !important; }
+.service-list li {
+  padding: 3px 0 !important;
+  font-size: .88em !important;
+  line-height: 1.4 !important;
+  border-bottom: 1px solid #f1f2f4 !important;
+}
+.service-list .venue-name { font-weight: 600; color: #343a42; }
+
+/* Align homepage content edge with the right-side navigation group. */
+@media (min-width: 1024px) {
+  .hk-home {
+    max-width: none !important;
+    width: 100% !important;
+  }
+}
+@media (max-width: 768px) {
+  .services-wrapper { grid-template-columns: 1fr !important; gap: 12px !important; }
+}
+
+
+.hk-joint-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+.hk-joint-head > span {
+  flex: 0 0 auto;
+  color: #858b94;
+  font-size: .86em;
+  font-weight: 400;
+}
+@media (max-width: 600px) {
+  .hk-joint-head { display: block; }
+  .hk-joint-head > span { display: block; margin-top: 1px; }
+}
+
+
+/* Compact patent list */
+.hk-patents { max-width: 820px; border-top: 1px solid #e7e9ec; }
+.hk-patent { padding: 13px 0 14px; border-bottom: 1px solid #e7e9ec; }
+.hk-patent-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.hk-patent-status {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: .72em; line-height: 1.45; font-weight: 700;
+}
+.hk-patent-status.granted { color: #315f46; background: #eef6f1; border: 1px solid #cfe2d5; }
+.hk-patent-status.pending { color: #68717b; background: #f5f6f7; border: 1px solid #e0e3e6; }
+.hk-patent-year { color: #8a9098; font-size: .82em; }
+.hk-patent-title { color: #252b33; font-size: 1em; font-weight: 650; line-height: 1.5; }
+.hk-patent-authors { margin-top: 4px; color: #5f6670; font-size: .88em; line-height: 1.5; }
+.hk-patent-meta { margin-top: 3px; color: #8a9098; font-size: .8em; }
+
+
+/* Patent row alignment refinement */
+.hk-patents { border-top: 0 !important; }
+.hk-patent:first-child { padding-top: 2px !important; }
+.hk-patent-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+.hk-patent-title-row .hk-patent-title { flex: 1 1 auto; min-width: 0; }
+.hk-patent-title-row .hk-patent-status { flex: 0 0 auto; margin-top: 1px; }
+.hk-patent-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+.hk-patent-meta .hk-patent-year { flex: 0 0 auto; }
+@media (max-width: 600px) {
+  .hk-patent-title-row { gap: 10px; }
+}
+
+
+/* Align patent metadata and CV honor years */
+.hk-patent-meta,
+.hk-patent-meta .hk-patent-year {
+  font-size: .8em !important;
+  line-height: 1.45 !important;
+  color: #8a9098 !important;
+  font-weight: 400 !important;
+}
+.hk-patent-meta { align-items: center !important; }
+.hk-patent-meta .hk-patent-year { flex: 0 0 auto; }
+
+.hk-honor {
+  display: grid !important;
+  grid-template-columns: 64px minmax(0, 1fr) !important;
+  column-gap: 12px !important;
+  row-gap: 2px !important;
+  align-items: baseline !important;
+}
+.hk-honor > span {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1.45 !important;
+}
+.hk-honor > strong {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  line-height: 1.45 !important;
+}
+.hk-honor > small {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* Thin separators between publication entries. */
+.hk-clean-page .pub-content {
+  margin-bottom: 0 !important;
+  padding-bottom: 15px !important;
+  border-bottom: 1px solid #e8eaed;
+}
+.hk-clean-page .pub-content + details {
+  margin-top: 15px !important;
+}
+
+
+/* Exact baseline alignment for patents and CV awards */
+.hk-patent-meta {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: baseline !important;
+  column-gap: 16px !important;
+  margin-top: 3px !important;
+  font-size: .8em !important;
+  line-height: 1.45 !important;
+  color: #8a9098 !important;
+}
+.hk-patent-meta > span,
+.hk-patent-meta > .hk-patent-year {
+  font: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: baseline !important;
+}
+
+.hk-honor {
+  display: grid !important;
+  grid-template-columns: 58px minmax(0,1fr) !important;
+  column-gap: 12px !important;
+  row-gap: 2px !important;
+  align-items: start !important;
+  padding: 8px 0 !important;
+}
+.hk-honor > span,
+.hk-honor > strong {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.4 !important;
+  align-self: start !important;
+}
+.hk-honor > span {
+  font-size: .9em !important;
+  padding-top: .08em !important;
+}
+.hk-honor > strong { font-size: 1em !important; }
+.hk-honor > small { margin: 0 !important; line-height: 1.35 !important; }
+
+/* Publication separators live on a dedicated wrapper, not pub-content. */
+.hk-clean-page .pub-entry {
+  padding-bottom: 14px !important;
+  margin-bottom: 14px !important;
+  border-bottom: 1px solid #e5e8ec !important;
+}
+.hk-clean-page .pub-entry .pub-content {
+  border-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* Publication separator fix: pub-entry is outside hk-clean-page in generated markup. */
+.archive .pub-entry,
+.page__content .pub-entry {
+  display: block !important;
+  padding-bottom: 13px !important;
+  margin-bottom: 13px !important;
+  border-bottom: 1px solid #dfe3e8 !important;
+}
+.archive .pub-entry .pub-content,
+.page__content .pub-entry .pub-content {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  border-bottom: 0 !important;
+}
+
+
+/* Explicit publication rules and sticky navigation */
+.hk-pub-separator {
+  display: block !important;
+  width: 100% !important;
+  height: 0 !important;
+  margin: 13px 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-top: 1px solid #dfe3e8 !important;
+}
+
+.masthead {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: rgba(255,255,255,.96) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* Final responsive polish */
+.archive .pub-entry,
+.page__content .pub-entry {
+  border-bottom: 1px solid #e3e6ea !important;
+  padding-bottom: 11px !important;
+  margin-bottom: 11px !important;
+}
+.hk-pub-separator { display: none !important; }
+
+/* Slimmer sticky header on desktop */
+.masthead { box-shadow: 0 1px 0 rgba(0,0,0,.055); }
+.masthead__inner-wrap {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.hk-nav { min-height: 48px !important; }
+.hk-nav-brand { font-size: 16px !important; }
+.hk-nav-links > a {
+  font-size: 14px !important;
+  padding: 5px 9px !important;
+}
+
+/* Phone navigation: brand first row, compact scrollable links second row */
+@media (max-width: 760px) {
+  .masthead__inner-wrap { padding-left: 16px !important; padding-right: 16px !important; }
+  .hk-nav {
+    display: block !important;
+    min-height: 0 !important;
+    padding: 9px 0 7px !important;
+  }
+  .hk-nav-brand {
+    display: block !important;
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 7px !important;
+  }
+  .hk-nav-links {
+    display: flex !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    gap: 5px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .hk-nav-links::-webkit-scrollbar { display: none; }
+  .hk-nav-links > a {
+    flex: 0 0 auto !important;
+    font-size: 12px !important;
+    padding: 4px 7px !important;
+  }
+
+  /* Let the profile become a compact centered header on phones. */
+  .sidebar {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 auto 18px !important;
+    padding: 0 18px !important;
+    text-align: center;
+  }
+  .sidebar .author__avatar { display: inline-block; width: min(58vw, 220px) !important; }
+  .sidebar .author__urls-wrapper { text-align: left; max-width: 280px; margin: 0 auto; }
+
+  #main { padding-left: 16px !important; padding-right: 16px !important; }
+  .archive, .page { float: none !important; width: 100% !important; padding: 0 !important; }
+
+  /* CV education: logo and content stack cleanly. */
+  .hk-cv .hk-edu {
+    grid-template-columns: 1fr !important;
+    gap: 7px !important;
+    padding: 11px 0 !important;
+  }
+  .hk-cv .hk-edu > img {
+    width: 72px !important;
+    max-height: 40px !important;
+    justify-self: start !important;
+  }
+  .hk-edu-head, .hk-joint-head { display: block !important; }
+  .hk-edu-head > span, .hk-joint-head > span { display: block !important; margin-top: 1px !important; }
+  .hk-joint-card {
+    grid-template-columns: 58px minmax(0,1fr) !important;
+    gap: 10px !important;
+  }
+  .hk-joint-card img { width: 52px !important; max-height: 32px !important; }
+  .hk-honor { grid-template-columns: 48px minmax(0,1fr) !important; column-gap: 8px !important; }
+
+  /* Other long-list pages */
+  .services-wrapper { grid-template-columns: 1fr !important; }
+  .hk-patent-title-row { display: block !important; }
+  .hk-patent-title-row .hk-patent-status { display: inline-block; margin-top: 5px !important; }
+}
+
+
+/* Mobile profile cleanup */
+@media (max-width: 760px) {
+  .sidebar .author__content {
+    width: 100% !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .sidebar .author__name,
+  .sidebar .author__bio {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .sidebar .author__urls-wrapper {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .sidebar .author__urls-wrapper > button,
+  .sidebar .author__urls-wrapper .btn {
+    display: none !important;
+  }
+  .sidebar .author__urls {
+    text-align: left !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+
+/* Publication typography and year spacing */
+.hk-pub-year {
+  clear: both !important;
+  margin: 24px 0 10px !important;
+  padding-top: 4px !important;
+  font-size: 1.55em !important;
+  line-height: 1.2 !important;
+}
+.hk-pub-filters + .hk-pub-year { margin-top: 12px !important; }
+
+.archive details > summary {
+  font-size: .96em !important;
+  line-height: 1.38 !important;
+}
+.archive .pub-content {
+  font-size: .90em !important;
+  line-height: 1.42 !important;
+}
+.archive .pub-entry {
+  padding-bottom: 8px !important;
+  margin-bottom: 8px !important;
+}
+.archive .pub-entry + details {
+  margin-top: 8px !important;
+}
+.archive .pub-entry + .hk-pub-year,
+.archive .pub-content + .hk-pub-year {
+  margin-top: 24px !important;
+}
+.pub-tag { font-size: .76em !important; }
+@media (max-width: 760px) {
+  .hk-pub-year { margin-top: 20px !important; font-size: 1.35em !important; }
+  .archive details > summary { font-size: .92em !important; }
+  .archive .pub-content { font-size: .86em !important; }
+}
+
+
+/* Mobile profile: compact left-aligned identity block, always show contacts */
+@media (max-width: 760px) {
+  .sidebar {
+    display: grid !important;
+    grid-template-columns: 92px minmax(0,1fr) !important;
+    column-gap: 14px !important;
+    row-gap: 6px !important;
+    align-items: start !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 4px 0 18px !important;
+    text-align: left !important;
+  }
+  .sidebar .author__avatar {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    width: 92px !important;
+    height: 92px !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+  .sidebar .author__avatar img {
+    width: 92px !important;
+    height: 92px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 6px !important;
+    margin: 0 !important;
+  }
+  .sidebar .author__content {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+  .sidebar .author__name,
+  .sidebar .author__bio {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .sidebar .author__name { margin-top: 2px !important; margin-bottom: 3px !important; }
+  .sidebar .author__bio { margin-bottom: 0 !important; }
+
+  .sidebar .author__urls-wrapper {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+  .sidebar .author__urls-wrapper > button,
+  .sidebar .author__urls-wrapper > .btn,
+  .sidebar button.btn--inverse {
+    display: none !important;
+  }
+  .sidebar .author__urls {
+    display: flex !important;
+    position: static !important;
+    flex-wrap: wrap !important;
+    gap: 3px 10px !important;
+    width: auto !important;
+    margin: 3px 0 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+  }
+  .sidebar .author__urls li {
+    display: block !important;
+    margin: 0 !important;
+    padding: 1px 0 !important;
+    font-size: .82em !important;
+    white-space: nowrap;
+  }
+  .sidebar .author__urls li a { padding: 0 !important; }
+}
+
+
+/* Mobile CV education: keep school logos beside school information */
+@media (max-width: 760px) {
+  .hk-cv .hk-edu {
+    display: grid !important;
+    grid-template-columns: 68px minmax(0, 1fr) !important;
+    column-gap: 12px !important;
+    row-gap: 4px !important;
+    align-items: start !important;
+  }
+  .hk-cv .hk-edu > img {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 62px !important;
+    max-height: 44px !important;
+    margin: 2px 0 0 !important;
+    justify-self: center !important;
+    align-self: start !important;
+  }
+  .hk-cv .hk-edu > .hk-edu-body {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+  }
+  .hk-cv .hk-edu-head {
+    display: block !important;
+  }
+  .hk-cv .hk-edu-head > span {
+    display: block !important;
+    margin-top: 1px !important;
+  }
+}
+
+
+/* Mobile nav: align second row with brand */
+@media (max-width: 760px) {
+  .hk-nav-links {
+    justify-content: flex-start !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+  .hk-nav-links > a:first-child {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+
+/* Mobile profile v2: avatar left, identity + icon-only contacts right */
+@media (max-width: 760px) {
+  .sidebar {
+    display: grid !important;
+    grid-template-columns: 86px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 13px !important;
+    row-gap: 5px !important;
+    align-items: start !important;
+    padding: 0 !important;
+    margin: 6px 0 18px !important;
+    text-align: left !important;
+  }
+  .sidebar .author__avatar {
+    grid-column: 1 !important;
+    grid-row: 1 / 3 !important;
+    width: 86px !important;
+    height: 86px !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+  .sidebar .author__avatar img {
+    width: 86px !important;
+    height: 86px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+  }
+  .sidebar .author__content {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+  .sidebar .author__name {
+    margin: 1px 0 2px !important;
+    padding: 0 !important;
+    text-align: left !important;
+    font-size: 1.08em !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+  .sidebar .author__bio {
+    margin: 0 !important;
+    text-align: left !important;
+    font-size: .88em !important;
+    line-height: 1.3 !important;
+  }
+  .sidebar .author__urls-wrapper {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+  .sidebar .author__urls-wrapper > button,
+  .sidebar .author__urls-wrapper > .btn,
+  .sidebar button.btn--inverse {
+    display: none !important;
+  }
+  .sidebar .author__urls {
+    display: flex !important;
+    position: static !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: auto !important;
+    margin: 5px 0 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  .sidebar .author__urls li {
+    display: block !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+  }
+  .sidebar .author__urls li a {
+    display: block !important;
+    width: 22px !important;
+    height: 22px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    font-size: 0 !important;
+    color: #59636f !important;
+    text-decoration: none !important;
+  }
+  .sidebar .author__urls li a i {
+    display: block !important;
+    width: 22px !important;
+    height: 22px !important;
+    margin: 0 !important;
+    font-size: 17px !important;
+    line-height: 22px !important;
+    text-align: center !important;
+  }
+  .sidebar .author__urls li a:hover { color: #173f67 !important; }
+  .sidebar .author__urls li:not(:has(a)) { display: none !important; }
+}
+
+
+/* Author profile markup-specific responsive layout */
+@media (max-width: 760px) {
+  .sidebar .hk-profile {
+    display: grid !important;
+    grid-template-columns: 86px minmax(0,1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 13px !important;
+    row-gap: 5px !important;
+    align-items: start !important;
+  }
+  .sidebar .hk-profile-avatar {
+    grid-column: 1 !important; grid-row: 1 / 3 !important;
+    display: block !important; width: 86px !important; height: 86px !important;
+  }
+  .sidebar .hk-profile-avatar img {
+    width: 86px !important; height: 86px !important; object-fit: cover !important;
+    border-radius: 6px !important; margin: 0 !important;
+  }
+  .sidebar .hk-profile-content {
+    grid-column: 2 !important; grid-row: 1 !important;
+    display: block !important; padding: 0 !important; width: auto !important;
+  }
+  .sidebar .hk-profile-links {
+    grid-column: 2 !important; grid-row: 2 !important;
+    display: block !important; position: static !important; padding: 0 !important; width: auto !important;
+  }
+  .sidebar .hk-profile-links .author__urls {
+    display: flex !important; position: static !important;
+    flex-direction: row !important; align-items: center !important; gap: 11px !important;
+    margin: 4px 0 0 !important; padding: 0 !important;
+    border: 0 !important; background: transparent !important; box-shadow: none !important; z-index: auto !important;
+  }
+  .sidebar .hk-profile-links .author__urls::before,
+  .sidebar .hk-profile-links .author__urls::after { display: none !important; }
+  .sidebar .hk-profile-links li { display: block !important; margin: 0 !important; padding: 0 !important; }
+  .sidebar .hk-profile-links a {
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+    width: 22px !important; height: 22px !important; margin: 0 !important; padding: 0 !important;
+    font-size: 0 !important; text-decoration: none !important;
+  }
+  .sidebar .hk-profile-links a i { font-size: 17px !important; line-height: 22px !important; margin: 0 !important; }
+  .sidebar .hk-profile-links a span { display: none !important; }
+}
+
+
+/* Mobile profile: prevent role from wrapping word-by-word */
+@media (max-width: 760px) {
+  .sidebar .hk-profile {
+    grid-template-columns: 78px minmax(0, 1fr) !important;
+    column-gap: 12px !important;
+  }
+  .sidebar .hk-profile-avatar,
+  .sidebar .hk-profile-avatar img {
+    width: 78px !important;
+    height: 78px !important;
+  }
+  .sidebar .hk-profile-content {
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+  .sidebar .hk-profile-content .author__name {
+    white-space: nowrap !important;
+    font-size: 1em !important;
+  }
+  .sidebar .hk-profile-content .author__bio {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    font-size: .82em !important;
+    line-height: 1.3 !important;
+  }
+}
+
+
+/* =========================================================
+   2026 typography system: restrained academic editorial style
+   ========================================================= */
+:root {
+  --hk-ink: #222831;
+  --hk-body: #4a515a;
+  --hk-muted: #7b838d;
+  --hk-blue: #173f67;
+  --hk-line: #e4e7eb;
+  --hk-nav-bg: #f7f8fa;
+}
+
+/* Global reading rhythm */
+body {
+  color: var(--hk-body);
+  font-size: 15px !important;
+  line-height: 1.62 !important;
+  -webkit-font-smoothing: antialiased;
+}
+.archive, .page__content { font-size: 1rem !important; }
+.archive p, .page__content p { line-height: 1.65; }
+.archive h1, .page__content h1 { color: var(--hk-ink); }
+.archive h2, .page__content h2 {
+  color: var(--hk-ink) !important;
+  font-size: 1.28rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+  letter-spacing: -.015em;
+}
+.archive h3, .page__content h3 {
+  color: var(--hk-ink);
+  font-size: 1.03rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Header: warm cool-gray, quieter than pure white */
+.masthead {
+  background: rgba(247,248,250,.96) !important;
+  border-bottom: 1px solid #e2e5e9 !important;
+  box-shadow: none !important;
+}
+.hk-nav {
+  min-height: 46px !important;
+  background: transparent !important;
+}
+.hk-nav-brand {
+  color: #252b33 !important;
+  font-size: 15.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: -.01em;
+}
+.hk-nav-links { gap: 4px !important; }
+.hk-nav-links > a {
+  color: #59616b !important;
+  font-size: 13.5px !important;
+  line-height: 1 !important;
+  font-weight: 600 !important;
+  padding: 6px 9px !important;
+}
+.hk-nav-links > a:hover {
+  color: var(--hk-blue) !important;
+  background: rgba(23,63,103,.045) !important;
+}
+.hk-nav-links > a.active-tab {
+  color: var(--hk-blue) !important;
+  background: rgba(23,63,103,.075) !important;
+}
+
+/* Desktop profile */
+.sidebar .author__name {
+  color: var(--hk-ink);
+  font-size: 1rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700;
+}
+.sidebar .author__bio {
+  color: #69717b;
+  font-size: .84rem !important;
+  line-height: 1.45 !important;
+}
+.sidebar .author__urls li,
+.sidebar .author__urls a {
+  font-size: .82rem !important;
+  line-height: 1.45 !important;
+}
+
+/* Home */
+.hk-about {
+  color: var(--hk-body);
+  font-size: .98rem !important;
+  line-height: 1.72 !important;
+}
+.hk-about p { line-height: 1.72 !important; }
+.hk-about a { color: var(--hk-blue) !important; font-weight: 500 !important; }
+.hk-selected h2 { margin-bottom: .55rem !important; }
+.hk-section-note {
+  color: var(--hk-muted) !important;
+  font-size: .82rem !important;
+  line-height: 1.45 !important;
+}
+.hk-selected .hk-pub { padding: .45rem 0 .5rem !important; }
+.hk-selected .hk-pub h3 {
+  color: var(--hk-ink);
+  font-size: .94rem !important;
+  line-height: 1.38 !important;
+  font-weight: 650 !important;
+}
+.hk-selected .hk-pub p {
+  color: #59616b;
+  font-size: .82rem !important;
+  line-height: 1.42 !important;
+}
+.hk-selected .hk-pub .hk-venue {
+  color: var(--hk-muted) !important;
+  font-size: .76rem !important;
+}
+
+/* Full publications */
+.hk-pub-filters { margin-bottom: 1rem !important; gap: 6px !important; }
+.hk-pub-filters button {
+  font-size: .75rem !important;
+  padding: 5px 11px !important;
+}
+.hk-pub-year {
+  color: var(--hk-ink) !important;
+  font-size: 1.2rem !important;
+  line-height: 1.25 !important;
+  margin: 21px 0 8px !important;
+  padding-top: 2px !important;
+}
+.archive details > summary {
+  color: #252b33 !important;
+  font-size: .9rem !important;
+  line-height: 1.42 !important;
+  font-weight: 650 !important;
+}
+.archive .pub-content {
+  color: #59616b;
+  font-size: .8rem !important;
+  line-height: 1.45 !important;
+}
+.pub-tag {
+  font-size: .68rem !important;
+  line-height: 1.3 !important;
+  padding: 2px 6px !important;
+}
+.archive .pub-entry {
+  padding-bottom: 7px !important;
+  margin-bottom: 7px !important;
+  border-color: var(--hk-line) !important;
+}
+
+/* CV */
+.hk-cv > h2 {
+  font-size: 1.2rem !important;
+  margin-top: 1.45rem !important;
+  margin-bottom: .35rem !important;
+}
+.hk-cv .hk-edu { padding: 11px 0 !important; }
+.hk-edu-head strong { font-size: .94rem !important; line-height: 1.4 !important; }
+.hk-edu-head > span,
+.hk-joint-head > span { font-size: .76rem !important; color: var(--hk-muted) !important; }
+.hk-degree { font-size: .84rem !important; line-height: 1.45 !important; }
+.hk-supervisor { font-size: .78rem !important; line-height: 1.45 !important; }
+.hk-joint-card strong { font-size: .84rem !important; }
+.hk-joint-role { font-size: .77rem !important; }
+.hk-joint-meta { font-size: .73rem !important; }
+.hk-honor { padding: 6px 0 !important; }
+.hk-honor > span { color: var(--hk-muted); font-size: .78rem !important; }
+.hk-honor > strong { color: var(--hk-ink); font-size: .86rem !important; line-height: 1.4 !important; }
+.hk-honor > small { color: var(--hk-muted); font-size: .75rem !important; line-height: 1.4 !important; }
+
+/* Patents */
+.hk-patent { padding: 10px 0 11px !important; }
+.hk-patent-title { font-size: .91rem !important; line-height: 1.45 !important; }
+.hk-patent-authors { font-size: .79rem !important; line-height: 1.45 !important; }
+.hk-patent-meta { font-size: .72rem !important; line-height: 1.4 !important; }
+.hk-patent-status { font-size: .65rem !important; padding: 2px 7px !important; }
+
+/* Services */
+.service-card { padding: 11px 14px 9px !important; }
+.service-title {
+  font-size: .92rem !important;
+  line-height: 1.35 !important;
+  margin-bottom: 6px !important;
+  padding-bottom: 6px !important;
+}
+.service-list li {
+  color: #59616b !important;
+  font-size: .78rem !important;
+  line-height: 1.42 !important;
+  padding: 3px 0 !important;
+}
+.service-list .venue-name { color: #303741 !important; }
+
+/* Mobile type scale and spacing */
+@media (max-width: 760px) {
+  body { font-size: 14px !important; line-height: 1.58 !important; }
+  .masthead { background: rgba(247,248,250,.98) !important; }
+  .hk-nav { padding: 8px 0 6px !important; }
+  .hk-nav-brand { font-size: 14.5px !important; margin-bottom: 6px !important; }
+  .hk-nav-links > a { font-size: 11.5px !important; padding: 4px 6px !important; }
+
+  .archive h2, .page__content h2 { font-size: 1.12rem !important; }
+  .hk-about { font-size: .92rem !important; line-height: 1.66 !important; }
+  .hk-about p { line-height: 1.66 !important; }
+
+  .sidebar .hk-profile-avatar,
+  .sidebar .hk-profile-avatar img { width: 72px !important; height: 72px !important; }
+  .sidebar .hk-profile { grid-template-columns: 72px minmax(0,1fr) !important; column-gap: 11px !important; }
+  .sidebar .hk-profile-content .author__name { font-size: .96rem !important; }
+  .sidebar .hk-profile-content .author__bio { font-size: .76rem !important; }
+  .sidebar .hk-profile-links a i { font-size: 15px !important; }
+
+  .hk-selected .hk-pub h3 { font-size: .88rem !important; }
+  .hk-selected .hk-pub p { font-size: .77rem !important; }
+  .hk-selected .hk-pub .hk-venue { font-size: .71rem !important; }
+
+  .hk-pub-year { font-size: 1.08rem !important; margin-top: 18px !important; }
+  .archive details > summary { font-size: .84rem !important; }
+  .archive .pub-content { font-size: .75rem !important; }
+
+  .hk-cv > h2 { font-size: 1.08rem !important; }
+  .hk-edu-head strong { font-size: .88rem !important; }
+  .hk-degree { font-size: .79rem !important; }
+  .hk-supervisor { font-size: .74rem !important; }
+  .hk-joint-card strong { font-size: .8rem !important; }
+  .hk-honor > strong { font-size: .81rem !important; }
+
+  .hk-patent-title { font-size: .86rem !important; }
+  .hk-patent-authors { font-size: .75rem !important; }
+  .service-title { font-size: .87rem !important; }
+  .service-list li { font-size: .75rem !important; }
+}
+
+
+/* Final density tweaks: publication section labels + CV education */
+.hk-pub-year {
+  font-size: 1.05rem !important;
+  line-height: 1.25 !important;
+  margin: 17px 0 7px !important;
+  padding-top: 1px !important;
+}
+.hk-cv .hk-edu {
+  padding: 8px 0 !important;
+  gap: 14px !important;
+}
+.hk-cv .hk-joint-card {
+  margin-top: 6px !important;
+  padding-top: 6px !important;
+}
+.hk-cv .hk-joint-card + .hk-joint-card {
+  margin-top: 3px !important;
+}
+@media (max-width: 760px) {
+  .hk-pub-year {
+    font-size: .98rem !important;
+    margin: 15px 0 6px !important;
+  }
+  .hk-cv .hk-edu {
+    padding: 8px 0 !important;
+    row-gap: 3px !important;
+  }
+  .hk-cv .hk-joint-card {
+    margin-top: 5px !important;
+    padding-top: 5px !important;
+  }
+}
+
+
+/* Subtle micro-interactions */
+.hk-honor {
+  transition: transform .18s ease, background-color .18s ease !important;
+}
+.hk-honor:hover {
+  transform: translateX(3px);
+  background: rgba(23,63,103,.025);
+}
+.hk-edu {
+  transition: transform .18s ease !important;
+}
+.hk-edu:hover { transform: translateX(2px); }
+.hk-patent {
+  transition: transform .18s ease, background-color .18s ease !important;
+}
+.hk-patent:hover {
+  transform: translateX(3px);
+  background: rgba(23,63,103,.018);
+}
+.service-card {
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease !important;
+}
+.service-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 14px rgba(25,35,45,.045) !important;
+}
+.hk-pub-filters button { transition: transform .15s ease, background-color .15s ease, color .15s ease, border-color .15s ease !important; }
+.hk-pub-filters button:hover { transform: translateY(-1px); }
+.hk-nav-links > a { transition: color .16s ease, background-color .16s ease !important; }
+
+@media (hover: none), (max-width: 760px) {
+  .hk-honor:hover, .hk-edu:hover, .hk-patent:hover, .service-card:hover, .hk-pub-filters button:hover {
+    transform: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hk-honor, .hk-edu, .hk-patent, .service-card, .hk-pub-filters button, .hk-nav-links > a {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* First-load reveal: subtle PRISM-inspired entrance */
+@keyframes hkReveal {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hk-about {
+  animation: hkReveal .48s ease-out both;
+}
+.hk-selected {
+  animation: hkReveal .52s ease-out .08s both;
+}
+.sidebar .hk-profile {
+  animation: hkReveal .46s ease-out .03s both;
+}
+.hk-cv,
+.hk-patents,
+.services-wrapper,
+.hk-clean-page,
+.archive > .hk-pub-year,
+.archive > details,
+.archive > .pub-entry {
+  animation: hkReveal .48s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hk-about, .hk-selected, .sidebar .hk-profile, .hk-cv, .hk-patents,
+  .services-wrapper, .hk-clean-page, .archive > .hk-pub-year,
+  .archive > details, .archive > .pub-entry {
+    animation: none !important;
+  }
+}
+
+
+/* Keep CV honors, education, and patents static and understated */
+.hk-honor,
+.hk-honor:hover {
+  transform: none !important;
+  background: transparent !important;
+}
+.hk-edu,
+.hk-edu:hover {
+  transform: none !important;
+}
+.hk-patent,
+.hk-patent:hover {
+  transform: none !important;
+  background: transparent !important;
+}
+.hk-cv,
+.hk-patents {
+  animation: none !important;
+}
+
+
+/* Honors/competitions: motion only, no hover fill */
+.hk-honor {
+  transition: transform .18s ease !important;
+  background: transparent !important;
+}
+.hk-honor:hover {
+  transform: translateX(3px) !important;
+  background: transparent !important;
+}
+@media (hover: none), (max-width: 760px) {
+  .hk-honor:hover { transform: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hk-honor, .hk-honor:hover { transform: none !important; transition: none !important; }
+}
+
+
+/* Modern navigation surface: clean white with subtle glass separation */
+.masthead {
+  background: rgba(255,255,255,.92) !important;
+  border-bottom: 1px solid rgba(31,41,55,.075) !important;
+  box-shadow: 0 1px 8px rgba(20,30,45,.025) !important;
+  backdrop-filter: saturate(140%) blur(12px) !important;
+  -webkit-backdrop-filter: saturate(140%) blur(12px) !important;
+}
+.hk-nav { background: transparent !important; }
+.hk-nav-brand { color: #1f2933 !important; }
+.hk-nav-links > a {
+  color: #58616c !important;
+  background: transparent !important;
+}
+.hk-nav-links > a:hover {
+  color: #123f6d !important;
+  background: rgba(18,63,109,.045) !important;
+}
+.hk-nav-links > a.active-tab {
+  color: #123f6d !important;
+  background: rgba(18,63,109,.065) !important;
+}
+@media (max-width: 760px) {
+  .masthead { background: rgba(255,255,255,.96) !important; }
+}
+
+
+/* Competition winner treatment */
+.hk-award-link {
+  color: #222831 !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+}
+.hk-award-link:hover { color: #173f67 !important; }
+.hk-champion-badge {
+  display: inline-block;
+  margin-left: 7px;
+  padding: 2px 7px;
+  border: 1px solid #d7b45a;
+  border-radius: 999px;
+  background: #fffaf0;
+  color: #8a6515;
+  font-size: .67rem;
+  line-height: 1.35;
+  font-weight: 700;
+  vertical-align: .08em;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .hk-champion-badge { margin-left: 5px; font-size: .62rem; padding: 2px 6px; }
+}
+
+
+/* Slightly quieter patent titles */
+.hk-patent-title {
+  font-size: .86rem !important;
+  line-height: 1.45 !important;
+  font-weight: 650 !important;
+}
+@media (max-width: 760px) {
+  .hk-patent-title { font-size: .82rem !important; }
+}
+
+
+/* Smaller publication action badges (Paper / Code / Slides) */
+.archive .pub-content a img {
+  height: 18px !important;
+  width: auto !important;
+  vertical-align: middle !important;
+}
+.archive .pub-content a {
+  display: inline-block;
+  line-height: 1 !important;
+  margin-left: 2px !important;
+}
+@media (max-width: 760px) {
+  .archive .pub-content a img { height: 16px !important; }
+}
+
+
+/* Slightly roomier sticky navigation */
+.hk-nav {
+  min-height: 52px !important;
+}
+.hk-nav-brand {
+  font-size: 16px !important;
+}
+.hk-nav-links > a {
+  font-size: 14px !important;
+  padding: 7px 10px !important;
+}
+@media (max-width: 760px) {
+  .hk-nav {
+    min-height: 0 !important;
+    padding: 9px 0 7px !important;
+  }
+  .hk-nav-brand { font-size: 14.5px !important; }
+  .hk-nav-links > a { font-size: 11.5px !important; padding: 4px 6px !important; }
+}
+
+
+/* Navbar final size nudge */
+.hk-nav {
+  min-height: 56px !important;
+}
+.hk-nav-brand {
+  font-size: 16.5px !important;
+}
+.hk-nav-links > a {
+  font-size: 14.5px !important;
+  padding: 7px 11px !important;
+}
+@media (max-width: 760px) {
+  .hk-nav {
+    min-height: 0 !important;
+    padding: 9px 0 7px !important;
+  }
+  .hk-nav-brand { font-size: 14.5px !important; }
+  .hk-nav-links > a { font-size: 11.5px !important; padding: 4px 6px !important; }
+}
+
+
+/* Publication cleanup: exactly one separator per visible entry */
+.archive .pub-entry,
+.page__content .pub-entry,
+.hk-clean-page .pub-entry {
+  border-bottom: 0 !important;
+  margin-bottom: 7px !important;
+  padding-bottom: 7px !important;
+}
+.archive .pub-entry:not([hidden]) + details {
+  border-top: 1px solid #e5e8ec !important;
+  padding-top: 8px !important;
+}
+.archive .pub-entry:not([hidden]) + .hk-pub-year {
+  border-top: 0 !important;
+}
+.archive details {
+  border-top: 0;
+}
+
+/* Venue/type labels should be secondary, not headline-sized. */
+.archive .pub-content .pub-tag {
+  font-size: .62rem !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  vertical-align: middle !important;
+}
+@media (max-width: 760px) {
+  .archive .pub-content .pub-tag { font-size: .58rem !important; padding: 2px 5px !important; }
+}
+
+
+/* Rebuilt publications component */
+.hk-pub-section { display: block; }
+.hk-publication {
+  padding: 8px 0 9px;
+  border-bottom: 1px solid #e5e8ec;
+}
+.hk-publication[hidden], .hk-pub-section[hidden] { display: none !important; }
+.hk-pub-details { margin: 0 !important; }
+.hk-pub-details > summary,
+.hk-pub-title {
+  color: #252b33;
+  font-size: .88rem;
+  line-height: 1.42;
+  font-weight: 650;
+  cursor: pointer;
+}
+.hk-pub-title { cursor: default; }
+.hk-pub-details pre { margin: 8px 0 !important; font-size: .72rem !important; }
+.hk-pub-info { margin-top: 3px; }
+.hk-pub-authors {
+  color: #59616b;
+  font-size: .79rem;
+  line-height: 1.45;
+}
+.hk-pub-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-top: 3px;
+}
+.hk-pub-actions .pub-tag {
+  margin-right: 2px !important;
+  font-size: .62rem !important;
+  padding: 2px 6px !important;
+}
+.hk-action {
+  display: inline-block;
+  padding: 2px 7px;
+  border: 1px solid #d9dee4;
+  border-radius: 4px;
+  color: #53606d !important;
+  background: #fff;
+  font-size: .66rem;
+  line-height: 1.35;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+.hk-action:hover { color: #173f67 !important; border-color: #aebac6; background: #fafbfd; }
+@media (max-width: 760px) {
+  .hk-publication { padding: 7px 0 8px; }
+  .hk-pub-details > summary, .hk-pub-title { font-size: .83rem; }
+  .hk-pub-authors { font-size: .74rem; }
+  .hk-action { font-size: .62rem; padding: 2px 6px; }
+}
+
+
+/* Publication action colors + clean section endings */
+.hk-action-paper {
+  color: #8b4b45 !important;
+  border-color: #ead4d1 !important;
+  background: #fff8f7 !important;
+}
+.hk-action-code {
+  color: #3f6651 !important;
+  border-color: #d2e3d8 !important;
+  background: #f7fbf8 !important;
+}
+.hk-action-collections {
+  color: #66558a !important;
+  border-color: #ddd5eb !important;
+  background: #faf8fd !important;
+}
+.hk-action-slides {
+  color: #496987 !important;
+  border-color: #d4e0ea !important;
+  background: #f7fafc !important;
+}
+.hk-action-paper:hover { color: #713934 !important; border-color: #dcbdb9 !important; }
+.hk-action-code:hover { color: #31533f !important; border-color: #bad3c3 !important; }
+.hk-action-collections:hover { color: #514174 !important; border-color: #cbbfe0 !important; }
+.hk-action-slides:hover { color: #365b7a !important; border-color: #bccfdd !important; }
+
+/* No separator after the final publication in a section or filtered result. */
+.hk-pub-section .hk-publication:last-child,
+.hk-publication.hk-last-visible {
+  border-bottom: 0 !important;
+}
+
+
+/* Paper action: soft amber to avoid journal-red collision */
+.hk-action-paper {
+  color: #80612f !important;
+  border-color: #e7dcc7 !important;
+  background: #fdfaf4 !important;
+}
+.hk-action-paper:hover {
+  color: #684b20 !important;
+  border-color: #d8c8a9 !important;
+  background: #fbf6ec !important;
+}
+
+
+/* Publication actions: unified neutral treatment */
+.hk-action,
+.hk-action-paper,
+.hk-action-code,
+.hk-action-collections,
+.hk-action-slides {
+  color: #59636e !important;
+  border-color: #d9dee4 !important;
+  background: #f8f9fa !important;
+}
+.hk-action:hover,
+.hk-action-paper:hover,
+.hk-action-code:hover,
+.hk-action-collections:hover,
+.hk-action-slides:hover {
+  color: #173f67 !important;
+  border-color: #b8c2cc !important;
+  background: #f3f5f7 !important;
+}
+
+
+/* Chapter-style next-page navigation */
+.hk-next-section {
+  display: block;
+  margin: 34px 0 6px;
+  padding: 18px 2px 4px;
+  border-top: 1px solid #e2e6ea;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+.hk-next-label {
+  display: block;
+  margin-bottom: 3px;
+  color: #8a929c;
+  font-size: .68rem;
+  font-weight: 650;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.hk-next-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  color: #252b33;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+.hk-next-main > span {
+  transition: transform .18s ease;
+  color: #173f67;
+  font-size: 1.05em;
+}
+.hk-next-desc {
+  display: block;
+  margin-top: 2px;
+  color: #7a828c;
+  font-size: .75rem;
+  line-height: 1.4;
+}
+.hk-next-section:hover .hk-next-main > span { transform: translateX(4px); }
+.hk-next-section:hover .hk-next-main strong { color: #173f67; }
+@media (max-width: 760px) {
+  .hk-next-section { margin-top: 26px; padding-top: 14px; }
+  .hk-next-main { font-size: .92rem; }
+  .hk-next-desc { font-size: .7rem; }
+}
+
+
+/* Edge-scroll chapter transitions */
+.hk-scroll-transition {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translate(-50%, 12px);
+  z-index: 2000;
+  padding: 7px 13px;
+  border: 1px solid rgba(35,45,55,.10);
+  border-radius: 999px;
+  background: rgba(255,255,255,.92);
+  color: #5d6670;
+  box-shadow: 0 6px 22px rgba(25,35,45,.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: .72rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.hk-scroll-transition.show { opacity: 1; transform: translate(-50%, 0); }
+body { transition: opacity .24s ease, transform .24s ease; }
+body.hk-page-exit-up { opacity: .12; transform: translateY(-8px); }
+body.hk-page-exit-down { opacity: .12; transform: translateY(8px); }
+
+@media (max-width: 760px), (hover: none) {
+  /* Avoid accidental page changes from touch momentum; navbar remains the mobile navigation. */
+  .hk-scroll-transition { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body, .hk-scroll-transition { transition: none !important; }
+}
+
+
+/* Mobile chapter continuation */
+.hk-mobile-next { display: none; }
+@media (max-width: 760px), (hover: none) {
+  .hk-mobile-next {
+    display: block;
+    margin: 24px 0 4px;
+    padding: 13px 1px 3px;
+    border-top: 1px solid #e3e6ea;
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  .hk-mobile-next-label {
+    display: block;
+    margin-bottom: 2px;
+    color: #8a929c;
+    font-size: .62rem;
+    line-height: 1.3;
+    font-weight: 650;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .hk-mobile-next-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    color: #252b33;
+    font-size: .9rem;
+    line-height: 1.4;
+  }
+  .hk-mobile-next-row > span { color: #173f67; font-size: 1.05em; }
+}
+
+
+/* Publication section rhythm and hierarchy */
+.hk-pub-section {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.hk-pub-section + .hk-pub-section {
+  margin-top: 18px !important;
+}
+.hk-pub-section > .hk-pub-year {
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+}
+.hk-pub-section > .hk-publication {
+  margin-left: 14px !important;
+  width: calc(100% - 14px) !important;
+}
+@media (max-width: 760px) {
+  .hk-pub-section + .hk-pub-section {
+    margin-top: 15px !important;
+  }
+  .hk-pub-section > .hk-pub-year {
+    margin-bottom: 6px !important;
+  }
+  .hk-pub-section > .hk-publication {
+    margin-left: 9px !important;
+    width: calc(100% - 9px) !important;
+  }
+}
+
+
+/* Mobile next control: own the single separator, suppress adjacent trailing rules */
+@media (max-width: 760px), (hover: none) {
+  .archive > .hk-mobile-next,
+  .page__content > .hk-mobile-next {
+    border-top: 1px solid #e3e6ea !important;
+  }
+  .archive > *:has(+ .hk-mobile-next),
+  .page__content > *:has(+ .hk-mobile-next) {
+    border-bottom: 0 !important;
+  }
+  .hk-pub-section:last-of-type .hk-publication:last-child,
+  .hk-patents .hk-patent:last-child,
+  .services-wrapper,
+  .hk-cv > *:last-child {
+    border-bottom: 0 !important;
+  }
+}
+
+
+/* About mobile ending: prevent selected-publication rule from doubling Next separator */
+@media (max-width: 760px), (hover: none) {
+  .hk-home .hk-selected .hk-pub:last-child {
+    border-bottom: 0 !important;
+  }
+  .hk-home {
+    border-bottom: 0 !important;
+  }
+}
+
+
+/* True single-page academic layout */
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+.hk-single-page { width: 100%; }
+.hk-site-section {
+  scroll-margin-top: 72px;
+  padding-top: 28px;
+  margin-top: 28px;
+  border-top: 1px solid #e5e8ec;
+}
+.hk-site-about {
+  padding-top: 0;
+  margin-top: 0;
+  border-top: 0;
+}
+.hk-site-section-title {
+  margin: 0 0 16px !important;
+  font-size: 1.32rem !important;
+  color: #20262e !important;
+}
+#publications .hk-pub-year { font-size: 1.05rem !important; }
+#cv .hk-cv > h2:first-child { margin-top: 0 !important; }
+#services .hk-clean-page, #patents .hk-patents, #cv .hk-cv { max-width: none; }
+
+/* Old multi-page continuation controls are obsolete on the homepage. */
+.hk-single-page ~ .hk-mobile-next,
+.hk-single-page ~ .hk-scroll-transition { display: none !important; }
+
+@media (max-width: 760px) {
+  html { scroll-padding-top: 92px; }
+  .hk-site-section {
+    scroll-margin-top: 92px;
+    padding-top: 22px;
+    margin-top: 22px;
+  }
+  .hk-site-section-title { font-size: 1.15rem !important; margin-bottom: 12px !important; }
+}
+
+
+/* Single-page citation fallback */
+.hk-citation {
+  margin: 7px 0 2px;
+  padding: 8px 10px;
+  border-left: 2px solid #d9dee4;
+  background: #fafbfc;
+  color: #66707a;
+  font-size: .74rem;
+  line-height: 1.5;
+}
+@media (max-width: 760px) {
+  .hk-citation { font-size: .7rem; padding: 7px 9px; }
+}
+
+
+/* Mobile navigation: compact dropdown list */
+.hk-mobile-menu-toggle { display: none; }
+@media (max-width: 760px) {
+  .hk-nav {
+    position: relative;
+    display: flex !important;
+    align-items: center !important;
+    padding: 10px 0 !important;
+  }
+  .hk-nav-brand {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.35 !important;
+  }
+  .hk-mobile-menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 32px;
+    height: 30px;
+    margin-left: auto;
+    padding: 6px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .hk-mobile-menu-toggle span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: #4f5964;
+    border-radius: 2px;
+    transition: transform .18s ease, opacity .18s ease;
+  }
+  .hk-mobile-menu-toggle.is-open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+  .hk-mobile-menu-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .hk-mobile-menu-toggle.is-open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+  .hk-nav-links {
+    display: none !important;
+    position: absolute !important;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 7px !important;
+    overflow: visible !important;
+    border: 1px solid rgba(31,41,55,.08);
+    border-radius: 0 0 8px 8px;
+    background: rgba(255,255,255,.98);
+    box-shadow: 0 10px 24px rgba(25,35,45,.07);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .hk-nav-links.hk-mobile-open { display: flex !important; }
+  .hk-nav-links > a,
+  .hk-nav-links > a:first-child {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 8px 10px !important;
+    border-radius: 5px;
+    font-size: .78rem !important;
+    line-height: 1.35 !important;
+    text-align: left !important;
+  }
+  .hk-nav-links > a + a { margin-top: 1px !important; }
+  .hk-nav-cv { border-top: 1px solid #edf0f2 !important; margin-top: 4px !important; padding-top: 9px !important; }
+}
+
+
+/* Homepage sections belong to one continuous page: no inter-section rules */
+.hk-single-page > .hk-site-section {
+  border-top: 0 !important;
+}
+.hk-single-page > .hk-site-section:not(.hk-site-about) {
+  margin-top: 22px !important;
+  padding-top: 8px !important;
+}
+.hk-single-page > #education,
+.hk-single-page > #honors,
+.hk-single-page > #competitions {
+  border-top: 0 !important;
+}
+
+/* On mobile keep the explicit Next control; desktop uses edge-scroll continuation. */
+@media (min-width: 761px) and (hover: hover) {
+  .hk-mobile-next { display: none !important; }
+}
+
+
+/* CV stays visible beside the mobile menu; desktop keeps it as the final nav item */
+.hk-mobile-cv { display: none; }
+@media (min-width: 761px) {
+  .hk-nav-links::after {
+    content: "CV";
+    display: inline-block;
+    padding: 7px 11px;
+    color: #58616c;
+    font-size: 14.5px;
+    line-height: 1;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+@media (max-width: 760px) {
+  .hk-mobile-cv {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 7px;
+    padding: 5px 8px;
+    border: 1px solid #dce1e6;
+    border-radius: 5px;
+    color: #4f5964 !important;
+    background: rgba(255,255,255,.7);
+    font-size: .72rem;
+    line-height: 1;
+    font-weight: 650;
+    text-decoration: none !important;
+  }
+  .hk-mobile-menu-toggle { margin-left: 0 !important; }
+  .hk-nav-links .hk-nav-cv { display: none !important; }
+
+  /* Ensure the chapter continuation is visible after the homepage wrapper. */
+  .archive > .hk-mobile-next {
+    display: block !important;
+    position: relative !important;
+    z-index: 2;
+  }
+}
+
+
+/* Real desktop CV link (replaces decorative fallback). */
+@media (min-width: 761px) {
+  .hk-nav-links::after { display: none !important; content: none !important; }
+  .hk-desktop-cv {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 7px 11px;
+    color: #58616c !important;
+    font-size: 14.5px;
+    line-height: 1;
+    font-weight: 600;
+    text-decoration: none !important;
+    border-radius: 5px;
+  }
+  .hk-desktop-cv:hover { color: #123f6d !important; background: rgba(18,63,109,.045); }
+}
+@media (max-width: 760px) {
+  .hk-desktop-cv { display: none !important; }
+}
+
+
+/* Mobile previous/next chapter controls at page bottom */
+.hk-mobile-prev { display: none; }
+@media (max-width: 760px), (hover: none) {
+  .hk-mobile-prev {
+    display: block;
+    margin: 24px 0 0;
+    padding: 13px 1px 10px;
+    border-top: 1px solid #e3e6ea;
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  .hk-mobile-prev-label {
+    display: block;
+    margin-bottom: 2px;
+    color: #8a929c;
+    font-size: .62rem;
+    line-height: 1.3;
+    font-weight: 650;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .hk-mobile-prev-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 8px;
+    color: #252b33;
+    font-size: .9rem;
+    line-height: 1.4;
+  }
+  .hk-mobile-prev-row > span { color: #173f67; }
+  .hk-mobile-prev + .hk-mobile-next {
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Refined champion badge: subtle academic gold */
+.hk-champion-badge {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+  margin-left: 7px !important;
+  padding: 2px 8px !important;
+  border: 1px solid rgba(170,126,38,.24) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, #fffdf7 0%, #fbf6e9 100%) !important;
+  color: #8a651f !important;
+  box-shadow: 0 1px 2px rgba(112,82,24,.045), inset 0 1px 0 rgba(255,255,255,.8);
+  font-size: .64rem !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  letter-spacing: .015em;
+  vertical-align: .08em;
+  white-space: nowrap;
+  transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+.hk-champion-badge:hover {
+  transform: translateY(-1px);
+  border-color: rgba(170,126,38,.38) !important;
+  box-shadow: 0 3px 8px rgba(112,82,24,.08), inset 0 1px 0 rgba(255,255,255,.85);
+}
+@media (max-width: 760px) {
+  .hk-champion-badge {
+    margin-left: 5px !important;
+    padding: 2px 7px !important;
+    font-size: .59rem !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hk-champion-badge { transition: none !important; }
+  .hk-champion-badge:hover { transform: none !important; }
+}
+
+
+/* Refined multilingual system font stack: zero extra font downloads */
+body,
+input,
+button,
+select,
+textarea {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Helvetica Neue",
+    Arial,
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Noto Sans CJK SC",
+    "Microsoft YaHei",
+    "Microsoft JhengHei",
+    sans-serif !important;
+}
+
+/* Bilingual site signature */
+.hk-nav-brand {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Helvetica Neue",
+    Arial,
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Noto Sans CJK SC",
+    "Microsoft YaHei",
+    sans-serif !important;
+  font-weight: 650 !important;
+  letter-spacing: -.012em !important;
+  word-spacing: .04em;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+}
+@media (min-width: 761px) {
+  .hk-nav-brand {
+    font-size: 16.5px !important;
+    line-height: 1.25 !important;
+  }
+}
+@media (max-width: 760px) {
+  .hk-nav-brand {
+    font-size: 14.5px !important;
+    line-height: 1.3 !important;
+    letter-spacing: -.006em !important;
+  }
+}

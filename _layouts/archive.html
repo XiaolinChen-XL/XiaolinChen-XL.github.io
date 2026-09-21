@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <div class="archive">
+    {% unless page.header.overlay_color or page.header.overlay_image %}
+      <h1 class="page__title">{{ page.title }}</h1>
+    {% endunless %}
+    {{ content }}
+    <div id="hk-scroll-transition" class="hk-scroll-transition" aria-hidden="true"><span></span></div>
+    {% if page.hk_prev_url %}
+    <a class="hk-mobile-prev hk-mobile-next" href="{{ page.hk_prev_url }}">
+      <span class="hk-mobile-next-label">Previous</span>
+      <span class="hk-mobile-next-row"><strong>{{ page.hk_prev_title }}</strong><span aria-hidden="true">←</span></span>
+    </a>
+    {% endif %}
+    {% if page.hk_next_url %}
+    <a class="hk-mobile-next" href="{{ page.hk_next_url }}">
+      <span class="hk-mobile-next-label">Next</span>
+      <span class="hk-mobile-next-row"><strong>{{ page.hk_next_title }}</strong><span aria-hidden="true">→</span></span>
+    </a>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,30 @@
+{% include base_path %}
+{% if page.author and site.data.authors[page.author] %}
+  {% assign author = site.data.authors[page.author] %}
+{% else %}
+  {% assign author = site.author %}
+{% endif %}
+
+<div class="hk-profile" itemscope itemtype="http://schema.org/Person">
+  <div class="author__avatar hk-profile-avatar">
+    {% if author.avatar contains "://" %}
+      <img src="{{ author.avatar }}" alt="{{ author.name }}">
+    {% else %}
+      <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ author.name }}">
+    {% endif %}
+  </div>
+
+  <div class="author__content hk-profile-content">
+    <h3 class="author__name">{{ author.name }}</h3>
+    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+  </div>
+
+  <div class="author__urls-wrapper hk-profile-links">
+    <ul class="author__urls social-icons">
+      {% if author.email %}<li><a href="mailto:{{ author.email }}" aria-label="Email" title="Email"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span>Email</span></a></li>{% endif %}
+      {% if author.googlescholar %}<li><a href="{{ author.googlescholar }}" aria-label="Google Scholar" title="Google Scholar"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i><span>Google Scholar</span></a></li>{% endif %}
+      {% if author.github %}<li><a href="https://github.com/{{ author.github }}" aria-label="GitHub" title="GitHub"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span>GitHub</span></a></li>{% endif %}
+      {% if author.orcid %}<li><a href="{{ author.orcid }}" aria-label="ORCID" title="ORCID"><i class="ai ai-orcid-square ai-fw" aria-hidden="true"></i><span>ORCID</span></a></li>{% endif %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+- title: "ArtECulture: Benchmarking Culture-Conditioned Visual Emotion Understanding in Multimodal Large Language Models"
+  authors: "<strong>Xiaolin Chen</strong>, Xuemeng Song, Wenhao Shi, Xianjing Han, Mong-Li Lee, and Wynne Hsu"
+  year: 2026
+  type: "preprint"
+  venue: "arXiv 2026"
+  paper: "https://arxiv.org/abs/2608.03358"
+
+- title: "Dual Knowledge-Enhanced Two-Stage Reasoner for Multimodal Dialog Systems"
+  authors: "<strong>Xiaolin Chen</strong>, Xuemeng Song, Haokun Wen, Weili Guan, Xiangyu Zhao, and Liqiang Nie"
+  year: 2025
+  type: "preprint"
+  venue: "arXiv 2025"
+  paper: "https://arxiv.org/abs/2509.07817"
+
+- title: "Interactive Garment Recommendation with User in the Loop"
+  authors: "Federico Becattini, <strong>Xiaolin Chen</strong>, Andrea Puccia, Haokun Wen, Xuemeng Song, Liqiang Nie, and Alberto Del Bimbo"
+  year: 2025
+  type: "journal"
+  venue: "ACM TOMM 2025"
+
+- title: "Domain-aware Multimodal Dialog Systems with Distribution-based User Characteristic Modeling"
+  authors: "<strong>Xiaolin Chen</strong>, Xuemeng Song, Jianhui Zuo, Yinwei Wei, Liqiang Nie, and Tat-Seng Chua"
+  year: 2024
+  type: "journal"
+  venue: "ACM TOMM 2024"
+  paper: "https://doi.org/10.1145/3704811"
+
+- title: "Simple but Effective Raw-Data Level Multimodal Fusion for Composed Image Retrieval"
+  authors: "Haokun Wen, Xuemeng Song, <strong>Xiaolin Chen</strong>, Yinwei Wei, Liqiang Nie, and Tat-Seng Chua"
+  year: 2024
+  type: "conference"
+  venue: "ACM SIGIR 2024"
+  paper: "https://arxiv.org/abs/2404.15875"
+  code: "https://github.com/haokunwen/DQU-CIR"
+
+- title: "Multimodal Dialog Systems with Dual Knowledge-enhanced Generative Pretrained Language Model"
+  authors: "<strong>Xiaolin Chen</strong>, Xuemeng Song, Liqiang Jing, Shuo Li, Linmei Hu, and Liqiang Nie"
+  year: 2023
+  type: "journal"
+  venue: "ACM TOIS 2023"
+  paper: "https://doi.org/10.1145/3606368"
+
+- title: "Dual Semantic Knowledge Composed Multimodal Dialog Systems"
+  authors: "<strong>Xiaolin Chen</strong>, Xuemeng Song, Yinwei Wei, Liqiang Nie, and Tat-Seng Chua"
+  year: 2023
+  type: "conference"
+  venue: "ACM SIGIR 2023"
+  paper: "https://doi.org/10.1145/3539618.3591673"
+
+- title: "Do Vision-Language Transformers Exhibit Visual Commonsense? An Empirical Study of VCR"
+  authors: "Zhenyang Li, Yangyang Guo, Ke-Jyun Wang, <strong>Xiaolin Chen</strong>, Liqiang Nie, and Mohan Kankanhalli"
+  year: 2023
+  type: "conference"
+  venue: "ACM MM 2023"
+
+- title: "Modality-Oriented Graph Learning Toward Outfit Compatibility Modeling"
+  authors: "Xuemeng Song, Shi-Ting Fang, <strong>Xiaolin Chen</strong>, Yinwei Wei, Zhongzhou Zhao, and Liqiang Nie"
+  year: 2023
+  type: "journal"
+  venue: "IEEE TMM 2023"
+
+- title: "Mutual-enhanced Incongruity Learning Network for Multi-modal Sarcasm Detection"
+  authors: "Yang Qiao, Liqiang Jing, Xuemeng Song, <strong>Xiaolin Chen</strong>, Lei Zhu, and Liqiang Nie"
+  year: 2023
+  type: "conference"
+  venue: "AAAI 2023"
+
+- title: "Adversarial-Enhanced Hybrid Graph Network for User Identity Linkage"
+  authors: "<strong>Xiaolin Chen</strong>, Xuemeng Song, Guozhen Peng, Shanshan Feng, and Liqiang Nie"
+  year: 2021
+  type: "conference"
+  venue: "ACM SIGIR 2021"
+  paper: "https://doi.org/10.1145/3404835.3462946"
+
+- title: "User Identity Linkage Across Social Media via Attentive Time-Aware User Modeling"
+  authors: "<strong>Xiaolin Chen</strong>, Xuemeng Song, Siwei Cui, Tian Gan, Zhiyong Cheng, and Liqiang Nie"
+  year: 2021
+  type: "journal"
+  venue: "IEEE TMM 2021"
+
+- title: "Fine-Grained Privacy Detection with Graph-Regularized Hierarchical Attentive Representation Learning"
+  authors: "<strong>Xiaolin Chen</strong>, Xuemeng Song, Ruiyang Ren, Lei Zhu, Zhiyong Cheng, and Liqiang Nie"
+  year: 2020
+  type: "journal"
+  venue: "ACM TOIS 2020"
