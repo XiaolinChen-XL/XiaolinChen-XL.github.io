@@ -19,7 +19,7 @@ I am currently a Postdoctoral Research Fellow at the <a href="https://www.nus.ed
 </p>
 
 <div class="hk-recruiting">
-<p>I am always happy to discuss potential research opportunities with motivated students and research interns in culturally aware MLLMs and multimodal intelligence — feel free to drop me an <a href="mailto:cxlicd@gmail.com">email</a>.</p>
+<p>I am looking for motivated research interns to work on culturally aware MLLMs, multimodal understanding, and affective computing. If you are interested, please feel free to contact me via <a href="mailto:cxlicd@gmail.com">email</a>.</p>
 </div>
 </div>
 
