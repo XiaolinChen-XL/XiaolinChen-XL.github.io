@@ -1,0 +1,73 @@
+[site]
+title = "Xiaolin Chen"
+description = "Homepage of Xiaolin"
+favicon = "/favicon.svg"
+last_updated = "November 18, 2025"
+
+[author]
+name = "Xiaolin Chen"
+title = "Postdoctoral Research Fellow"
+institution = "National University of Singapore (NUS)"
+avatar = "/xiaolin2.jpg"
+
+[social]
+# Contact information (leave blank or delete to hide)
+
+email = "cxlicd@gmail.com"
+location = "Singapore"
+location_url = "https://maps.google.com"
+location_details = [
+  "innovation 4.0, #04-06",
+  "3 Research Link, Singapore 117602"
+]
+google_scholar = "https://scholar.google.com/citations?user=3g0B6Q0AAAAJ&hl=en"
+orcid = "https://orcid.org/my-orcid?orcid=0000-0003-4638-0603"
+github = "https://github.com/XiaolinChen-XL/"
+
+[features]
+# Show a like button on the about page
+enable_likes = true
+
+# Display all subpages on a single page
+enable_one_page_mode = false
+
+[i18n]
+enabled = false #true
+locales = ["zh", "en"]
+default_locale = "en"
+# "auto" means the locale will be determined by the browser's language setting, "fixed" means the locale will be fixed to the default locale (but can be switched still, if you want to disable, set "enable=false")
+mode = "fixed" #"auto"
+fixed_locale = "en"
+# If true, PRISM will remember user's language preference in browser's localStorage
+persist = false #true
+# Show a language switcher on the top right corner
+switcher = false # true
+
+[i18n.labels]
+zh = "中文"
+en = "English"
+
+[[navigation]]
+title = "About"
+type = "page"
+target = "about"
+href = "/"
+
+[[navigation]]
+title = "Publications"
+type = "page"
+target = "publications"
+href = "/publications"
+
+[[navigation]]
+title = "Services"
+type = "page"
+target = "services"
+href = "/services"
+
+[[navigation]]
+title = "CV"
+type = "page"
+target = "cv"
+href = "/cv"
+

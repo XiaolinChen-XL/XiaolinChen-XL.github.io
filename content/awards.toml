@@ -1,0 +1,32 @@
+type = "card"
+title = "Awards"
+
+[[items]]
+title = "National Scholarship"
+subtitle = "Ministry of Education of China"
+date = "2023"
+
+[[items]]
+title = "China Scholarship Council (CSC) Scholarship"
+subtitle = "China Scholarship Council"
+date = "2022"
+
+[[items]]
+title = " Outstanding Graduates of Shandong Province"
+subtitle = "Shandong Provincial Department of Human Resources and Social Security"
+date = "2021"
+
+[[items]]
+title = "National Scholarship"
+subtitle = "Ministry of Education of China"
+date = "2020"
+
+[[items]]
+title = "Outstanding Students of Shandong Province"
+subtitle = "Shandong Provincial Department of Education"
+date = "2017"
+
+[[items]]
+title = "National Scholarship"
+subtitle = "Ministry of Education of China"
+date = "2016"
