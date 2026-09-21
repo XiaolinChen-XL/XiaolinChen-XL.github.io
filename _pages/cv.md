@@ -18,8 +18,6 @@ hk_next_title: "Services"
 
 <div class="hk-edu"><img src="/images/SDU-LOGO.png" alt="SDU"><div class="hk-edu-body"><div class="hk-edu-head"><strong>Shandong University</strong><span>Sep. 2018 — Jun. 2021</span></div><div class="hk-degree">M.Sc., School of Computer Science and Technology</div><div class="hk-supervisor">Supervisors: Prof. <a href="https://xuemengsong.github.io/">Xuemeng Song</a> and Prof. <a href="https://liqiangnie.github.io/">Liqiang Nie</a></div></div></div>
 
-<div class="hk-edu"><div class="hk-edu-body"><div class="hk-edu-head"><strong>Shandong University of Science and Technology</strong><span>Sep. 2014 — Jun. 2018</span></div><div class="hk-degree">B.Eng., Department of Information Engineering</div></div></div>
-
 <h2>Honors &amp; Awards</h2>
 <div class="hk-honor"><span>2023</span><strong>National Scholarship</strong><small>Ministry of Education of China</small></div>
 <div class="hk-honor"><span>2022</span><strong>China Scholarship Council Scholarship</strong><small>China Scholarship Council</small></div>

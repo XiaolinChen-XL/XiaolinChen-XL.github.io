@@ -10,7 +10,7 @@
   year: 2025
   type: "preprint"
   venue: "arXiv 2025"
-  paper: "https://arxiv.org/abs/2509.07817"
+  paper: "https://arxiv.org/pdf/2509.07817"
 
 - title: "Interactive Garment Recommendation with User in the Loop"
   authors: "Federico Becattini, <strong>Xiaolin Chen</strong>, Andrea Puccia, Haokun Wen, Xuemeng Song, Liqiang Nie, and Alberto Del Bimbo"

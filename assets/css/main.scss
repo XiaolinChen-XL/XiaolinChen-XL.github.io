@@ -830,6 +830,26 @@ h2#preprints { /* 针对 Preprints 这个特定 ID */
 .masthead .visible-links a, .greedy-nav .visible-links a { margin-right: 8px !important; }
 .hk-about p { text-align: justify; text-justify: inter-word; hyphens: auto; }
 
+.hk-recruiting {
+  margin: 1.25rem 0 2rem;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid #173f67;
+  border-radius: 3px;
+  background: #f3f7fb;
+  color: #3d4650;
+}
+.hk-recruiting-title {
+  margin-bottom: .3rem;
+  color: #173f67;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.hk-recruiting p { margin: 0 !important; line-height: 1.6; }
+.hk-recruiting a { color: #173f67 !important; font-weight: 600; }
+html.hk-dark .hk-recruiting { background: #1c2630; border-left-color: #8ab4f8; color: #d7dce2; }
+html.hk-dark .hk-recruiting-title,
+html.hk-dark .hk-recruiting a { color: #8ab4f8 !important; }
+
 .hk-theme-toggle {
   flex: 0 0 auto; border: 0; background: transparent; color: #555;
   padding: 8px 10px; cursor: pointer; font-size: 16px; border-radius: 6px;
