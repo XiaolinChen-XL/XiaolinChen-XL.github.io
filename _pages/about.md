@@ -19,8 +19,7 @@ I am currently a Postdoctoral Research Fellow at the <a href="https://www.nus.ed
 </p>
 
 <div class="hk-recruiting">
-  <div class="hk-recruiting-title">Prospective Students &amp; Interns</div>
-  <p>I am looking for motivated students and research interns to work on culturally aware MLLMs, multimedia computing, and related topics. If you are interested, please feel free to contact me via <a href="mailto:cxlicd@gmail.com">email</a>.</p>
+<p>I am always happy to discuss potential research opportunities with motivated students and research interns in culturally aware MLLMs and multimodal intelligence — feel free to drop me an <a href="mailto:cxlicd@gmail.com">email</a>.</p>
 </div>
 </div>
 
@@ -34,8 +33,8 @@ I am currently a Postdoctoral Research Fellow at the <a href="https://www.nus.ed
 <div class="hk-pub"><h3>Multimodal Dialog Systems with Dual Knowledge-enhanced Generative Pretrained Language Model</h3><p><strong>Xiaolin Chen</strong>, Xuemeng Song, Liqiang Jing, Shuo Li, Linmei Hu, and Liqiang Nie.</p><p class="hk-venue">ACM TOIS, 2023 · <a href="https://doi.org/10.1145/3606368">Paper</a></p></div>
 <div class="hk-pub"><h3>Dual Semantic Knowledge Composed Multimodal Dialog Systems</h3><p><strong>Xiaolin Chen</strong>, Xuemeng Song, Yinwei Wei, Liqiang Nie, and Tat-Seng Chua.</p><p class="hk-venue">ACM SIGIR, 2023 · <a href="https://doi.org/10.1145/3539618.3591673">Paper</a></p></div>
 <div class="hk-pub"><h3>Adversarial-Enhanced Hybrid Graph Network for User Identity Linkage</h3><p><strong>Xiaolin Chen</strong>, Xuemeng Song, Guozhen Peng, Shanshan Feng, and Liqiang Nie.</p><p class="hk-venue">ACM SIGIR, 2021 · <a href="https://doi.org/10.1145/3404835.3462946">Paper</a></p></div>
-<div class="hk-pub"><h3>User Identity Linkage Across Social Media via Attentive Time-Aware User Modeling</h3><p><strong>Xiaolin Chen</strong>, Xuemeng Song, Siwei Cui, Tian Gan, Zhiyong Cheng, and Liqiang Nie.</p><p class="hk-venue">IEEE TMM, 2021</p></div>
-<div class="hk-pub"><h3>Fine-Grained Privacy Detection with Graph-Regularized Hierarchical Attentive Representation Learning</h3><p><strong>Xiaolin Chen</strong>, Xuemeng Song, Ruiyang Ren, Lei Zhu, Zhiyong Cheng, and Liqiang Nie.</p><p class="hk-venue">ACM TOIS, 2020</p></div>
+<div class="hk-pub"><h3>User Identity Linkage Across Social Media via Attentive Time-Aware User Modeling</h3><p><strong>Xiaolin Chen</strong>, Xuemeng Song, Siwei Cui, Tian Gan, Zhiyong Cheng, and Liqiang Nie.</p><p class="hk-venue">IEEE TMM, 2021 · <a href="https://ieeexplore.ieee.org/document/9246515">Paper</a></p></div>
+<div class="hk-pub"><h3>Fine-Grained Privacy Detection with Graph-Regularized Hierarchical Attentive Representation Learning</h3><p><strong>Xiaolin Chen</strong>, Xuemeng Song, Ruiyang Ren, Lei Zhu, Zhiyong Cheng, and Liqiang Nie.</p><p class="hk-venue">ACM TOIS, 2020 · <a href="https://dl.acm.org/doi/10.1145/3406109">Paper</a></p></div>
 </div>
 </div>
 </section>
