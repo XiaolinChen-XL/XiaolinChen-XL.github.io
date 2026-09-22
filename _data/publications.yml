@@ -65,13 +65,6 @@
   type: "conference"
   venue: "AAAI 2023"
 
-- title: "CI-OCM: Counterfactural Inference towards Unbiased Outfit Compatibility Modeling"
-  authors: "Liqiang Jing, Minghui Tian, <strong>Xiaolin Chen</strong>, Teng Sun, Weili Guan, and Xuemeng Song"
-  year: 2022
-  type: "conference"
-  venue: "ACM MM Workshop on Multimedia Computing towards Fashion Recommendation 2022"
-  paper: "https://doi.org/10.1145/3552468.3555363"
-
 - title: "Adversarial-Enhanced Hybrid Graph Network for User Identity Linkage"
   authors: "<strong>Xiaolin Chen</strong>, Xuemeng Song, Guozhen Peng, Shanshan Feng, and Liqiang Nie"
   year: 2021
