@@ -20,7 +20,6 @@ hk_next_title: "Services"
 
 <h2>Honors &amp; Awards</h2>
 <div class="hk-honor"><span>2023</span><strong>National Scholarship</strong><small>Ministry of Education of China</small></div>
-<div class="hk-honor"><span>2022</span><strong>China Scholarship Council Scholarship</strong><small>China Scholarship Council</small></div>
 <div class="hk-honor"><span>2021</span><strong>Outstanding Graduate of Shandong Province</strong><small>Shandong Provincial Department of Human Resources and Social Security</small></div>
 <div class="hk-honor"><span>2020</span><strong>National Scholarship</strong><small>Ministry of Education of China</small></div>
 <div class="hk-honor"><span>2017</span><strong>Outstanding Student of Shandong Province</strong><small>Shandong Provincial Department of Education</small></div>
