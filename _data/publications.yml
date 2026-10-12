@@ -7,9 +7,9 @@
 
 - title: "Dual Knowledge-Enhanced Two-Stage Reasoner for Multimodal Dialog Systems"
   authors: "<strong>Xiaolin Chen</strong>, Xuemeng Song, Haokun Wen, Weili Guan, Xiangyu Zhao, and Liqiang Nie"
-  year: 2025
-  type: "preprint"
-  venue: "arXiv 2025"
+  year: 2026
+  type: "journal"
+  venue: "ACM Transactions on Information Systems (TOIS), accepted"
   paper: "https://arxiv.org/pdf/2509.07817"
 
 - title: "Interactive Garment Recommendation with User in the Loop"
